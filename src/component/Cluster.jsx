@@ -1,7 +1,18 @@
 export default function Cluster() {
     return (
         <>
-        <div>inside enter cluster</div>
+        <form>
+            <input
+            type='text'
+            name='cluster'
+            placeholder='ENTER YOUR CLUSTER'
+            />
+            <br />
+            <button>
+                ENTER
+            </button>
+        </form>
+
         </>
     )
 }
