@@ -1,4 +1,4 @@
-import User from '../models/userModel';
+import User from '../models/userModel.js';
 import bcrypt from 'bcrypt';
 
 const userController = {};
@@ -9,42 +9,42 @@ userController.login = async (req, res, next) => {
     return next({
       log: 'Missing username or password in userController.createUser',
       status: 400,
-      messgae: { err: 'username and password required' },
+      message: { err: 'username and password required' },
     });
   }
   try {
-    const user = await User.find({ username: username });
+    const user = await User.findOne({ username: username });
+    // console.log(user)
     if (!user) {
       return next({
-        log: 'invalid username in userController.verifyUser',
+        log: 'invalid username in userController.login',
         status: 401,
         message: { err: 'Invalid username or password' },
       });
     } else {
       try {
-        const result = await bcrypt.compare(password, user[0].password);
+        const result = await bcrypt.compare(password, user.password);
         if (!result) {
           return next({
-            log: 'invalid password in userController.verifyUser',
+            log: 'invalid password in userController.login',
             status: 401,
             message: { err: 'Invalid username or password' },
           });
         } else {
-          res.locals.userId = user[0]._id;
-            // console.log(res.locals.userId);
+          res.locals.user = user
           return next();
         }
       } catch (err) {
         return next({
-          log: 'Error in userController.verifyUser',
-          messgae: { err: 'Something went wrong! Whoops!' },
+          log: 'Error in userController.login',
+          message: { err: 'Error logging in' },
         });
       }
     }
   } catch (err) {
     return next({
-      log: 'Error in userController.verifyUser',
-      messgae: { err: 'Something went wrong! Whoops!' },
+      log: 'Error in userController.login',
+      message: { err: 'Something went wrong! Whoops!' },
     });
   }
 };
@@ -54,9 +54,17 @@ userController.signup = async (req, res, next) => {
     const { username, password } = req.body;
     if (!username || !password) {
       return next({
-        log: 'Missing username or password in userController.createUser',
+        log: 'Missing username or password in userController.signup',
         status: 400,
-        messgae: { err: 'username and password required' },
+        message: { err: 'username and password required' },
+      });
+    }
+    const findUser = await User.findOne({ username: username });
+    if (findUser) {
+      return next({
+        log: 'Error in userController.signup',
+        status: 400,
+        message: { err: 'Username is taken' },
       });
     }
     const salt = await bcrypt.genSalt();
@@ -65,12 +73,13 @@ userController.signup = async (req, res, next) => {
       username: username,
       password: hashedPassword,
     });
-    res.locals.userId = user._id;
+    // console.log('user from signup', user);
+    res.locals.user = user;
     return next();
   } catch (err) {
     return next({
-      log: 'Error in userController.createUser',
-      messgae: { err: 'Something went wrong! Whoops!' },
+      log: 'Error in userController.signup',
+      message: { err: 'Something went wrong! Whoops!' },
     });
   }
 }

@@ -1,6 +1,7 @@
 import express from 'express'
 import path from 'path'
 import 'dotenv/config'
+import mongoose from 'mongoose'
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -19,7 +20,7 @@ mongoose
   .catch((err) => console.log(err));
 
 // import and use routes
-import { userRouter } from './routes/userRouter';
+import { userRouter } from './routes/userRouter.js';
 
 app.use('/user', userRouter);
 // unknown route handler
@@ -29,10 +30,14 @@ app.get('/*', (req, res) => {
 
 // global error handler
 app.use((err, req, res, next) => {
-  res.locals.message = err.message;
-  console.log('Error: ', err);
-  const errorStatus = err.status || 500;
-  return res.status(errorStatus).send(res.locals.message);
+  const defaultErr = {
+    log: 'Express error handler caught unknown middleware error',
+    status: 500,
+    message: { err: 'An error occurred' },
+  };
+  const errorObj = Object.assign({}, defaultErr, err);
+  console.log(errorObj.log);
+  return res.status(errorObj.status).json(errorObj.message);
 });
 
 app.listen(PORT, () => {
