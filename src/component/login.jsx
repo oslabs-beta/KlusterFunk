@@ -13,7 +13,7 @@ export default function Login() {
     // login or signup requested
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const loginEndpoint = `/`
+        const loginEndpoint = `/user/${auth}`
         
         if (password !== confirmPassword) setInfoMatch(false);
         if (password === confirmPassword || auth === 'login') {
@@ -30,7 +30,7 @@ export default function Login() {
             if (!res.ok) {
                 throw new Error('failed to fetch at auth')
             }
-            if (response.status === 201) {
+            if (res.status === 201 || res.status === 202) {
                 navigate('/cluster')
             }
         } 
