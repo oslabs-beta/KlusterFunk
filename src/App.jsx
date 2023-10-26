@@ -11,14 +11,12 @@ import Dashboard from './component/Dashboard.jsx'
 function App() {
 
   return (
-    <>
       <Routes>
         <Route path='/' element={<Homepage />}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/cluster' element={<Cluster />}/>
         <Route path='/dashboard' element={<Dashboard />}/>
       </Routes>
-    </>
   )
 }
 
