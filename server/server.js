@@ -4,7 +4,7 @@ import 'dotenv/config'
 import mongoose from 'mongoose'
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3030;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
