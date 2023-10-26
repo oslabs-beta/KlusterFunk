@@ -40,7 +40,7 @@ export default function Login() {
     return (
         <main className='p-8 bg-slate-300 border-slate-500 border-2 rounded-lg'>
         <form className='space-y-3' onSubmit={handleSubmit} 
-        onKeyDown={(e) => {
+        onChange={(e) => {
             switch (e.target.name) {
                 case 'username':
                     setUsername(e.target.value);
@@ -90,7 +90,7 @@ export default function Login() {
             <button
             id='signup'
             className='border-slate-500 border-1 rounded-lg bg-slate-200'
-            type='button'
+            type='submit'
             onClick={() => {setAuth('signup')}}
             >
             Signup
