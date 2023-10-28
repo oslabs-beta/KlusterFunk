@@ -1,13 +1,12 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 
-export default function Login() {
+export default function Login(props) {
     const [auth, setAuth] = useState('login')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [infoMatch, setInfoMatch] = useState('')
-
     const navigate = useNavigate();
 
     // login or signup requested
