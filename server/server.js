@@ -2,11 +2,15 @@ import express from 'express'
 import path from 'path'
 import 'dotenv/config'
 import mongoose from 'mongoose'
+import cookieParser from 'cookie-parser'
+import cors from 'cors'
 
 const app = express();
 const PORT = process.env.PORT || 3030;
 
 app.use(express.json());
+app.use(cookieParser());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 // connect to database
