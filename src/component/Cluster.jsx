@@ -1,12 +1,21 @@
-import { useState } from "react"
-import { useNavigate } from "react-router"
-import { Link } from "react-router-dom"
+import React, { useEffect, useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function Cluster() {
     const [cluster, setCluster] = useState('')
     const [isDisabled, setIsDisabled] = useState(false)
     const navigate = useNavigate()
 
+    useEffect(() => {
+        async function verifyToken() {
+          const response = await fetch('/user/auth');
+          if (response.status !== 202) {
+            navigate('/');
+          }
+        }
+        verifyToken();
+      }, []);
+      
     const clusterEndPoint = `/`
     const submitCluster = async () => {
         const res = await fetch(clusterEndPoint, {
