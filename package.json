@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@christiangalsterer/kafkajs-prometheus-exporter": "^3.0.0",
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -32,8 +33,13 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+<<<<<<< HEAD
     "helmet": "^7.0.0",
+=======
+    "kafkajs": "^2.2.4",
+>>>>>>> 5bf18e1963ae829df774018e155bb15f269d2d23
     "postcss": "^8.4.31",
+    "prom-client": "^15.0.0",
     "tailwindcss": "^3.3.5",
     "vite": "^4.4.5"
   }
