@@ -1,6 +1,6 @@
 import { consumer } from "./utility.js";
 
-await consumer.connect();
+
 await consumer.subscribe({ topic: "test-topic", fromBeginning: true });
 
 await consumer.run({

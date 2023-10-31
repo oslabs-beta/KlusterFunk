@@ -1,0 +1,17 @@
+{
+	"ulid": "01HE2M3TM2B9MW674TN2K5J0TB",
+	"minTime": 1698732171119,
+	"maxTime": 1698739200000,
+	"stats": {
+		"numSamples": 45,
+		"numSeries": 5,
+		"numChunks": 5
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01HE2M3TM2B9MW674TN2K5J0TB"
+		]
+	},
+	"version": 1
+}
