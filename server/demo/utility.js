@@ -6,7 +6,7 @@ import kafkaExporter from "@christiangalsterer/kafkajs-prometheus-exporter";
 const clientId = "demo-app";
 const kafka = new Kafka({
   clientId,
-  brokers: ["localhost:9092"],
+  brokers: ["localhost:9091"],
 });
 
 const producer = kafka.producer();
@@ -33,6 +33,10 @@ kafkaExporter.monitorKafkaJSProducer(producer, register, {
 kafkaExporter.monitorKafkaJSConsumer(consumer, register, {
   defaultLabels: { client_id: clientId },
 });
+
+await producer.connect();
+await consumer.connect();
+await admin.connect();
 
 // How to list topics
 // await console.log("TOPICS TOPICS", await admin.listTopics());

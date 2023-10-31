@@ -1,6 +1,5 @@
-import { producer } from "../utility.js";
+import { producer } from "./utility.js";
 
-await producer.connect();
 console.log("producer connected");
 
 function randomVal() {
