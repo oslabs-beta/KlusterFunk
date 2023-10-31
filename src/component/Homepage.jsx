@@ -22,7 +22,6 @@ export default function Homepage() {
             <Link to='/login'>Login</Link>
         </nav>
         <div className="bg-white flex-grow flex-col flex items-center justify-center rounded-lg">
-            <p>Welcome message here</p>
             <Link to='/dashboard'>DASHBOARD</Link>
         </div>
         </main>

@@ -8,7 +8,6 @@ export default function Login(props) {
     const [confirmPassword, setConfirmPassword] = useState('')
     const [infoMatch, setInfoMatch] = useState('')
     const navigate = useNavigate();
-
     // login or signup requested
     const handleSubmit = async (e) => {
         e.preventDefault();
