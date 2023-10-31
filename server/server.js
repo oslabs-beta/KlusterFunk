@@ -4,6 +4,7 @@ import 'dotenv/config'
 import mongoose from 'mongoose'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
+import helmet from "helmet"
 
 const app = express();
 const PORT = process.env.PORT || 3030;
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+app.use(helmet.frameguard({action:'sameorigin'}));
 
 // connect to database
 mongoose
