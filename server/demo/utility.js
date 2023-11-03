@@ -6,7 +6,7 @@ import kafkaExporter from "@christiangalsterer/kafkajs-prometheus-exporter";
 const clientId = "demo-app";
 const kafka = new Kafka({
   clientId,
-  brokers: ["localhost:9091"],
+  brokers: ["localhost:9092"],
 });
 
 const producer = kafka.producer();
