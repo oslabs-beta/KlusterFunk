@@ -1,41 +1,7 @@
 import React, { useLayoutEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { Line } from 'react-chartjs-2';
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend,
-  } from 'chart.js';
-  
-
-  ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend
-  );
-
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Throughput',
-      },
-    },
-  };
+import LineGraph from './LineGraph'
 
 export default function Dashboard() {
   // const query
@@ -72,26 +38,6 @@ export default function Dashboard() {
   }
   getBytesOutMetrics();
 
-  const labels = ['14:00', '14:05', '14:10', '14:15'];
-  
-  const data = {
-    labels,
-    datasets: [
-      {
-        label: 'Bytes In',
-        data: labels.map(() => bytesIn),
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
-        label: 'Bytes Out',
-        data: labels.map(() => bytesOut),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      },
-    ],
-  };
-
   const navigate = useNavigate();
   const time = Date.now();
   const iframeLink =
@@ -116,7 +62,7 @@ export default function Dashboard() {
       </nav>
       <div className='bg-white flex-grow flex-col flex items-center justify-center rounded-lg'>
         <div><h1>Active Broker Count: {brokerNum}</h1></div>
-        <div className='w-3/5 h-4/5'><Line options={options} data={data} /></div>
+        <div className='w-3/5 h-4/5'><LineGraph options={options} data={data} /></div>
         {/* <iframe src={iframeLink} width='400' height='200'></iframe>
         <iframe src={iframeLink1} width='400' height='200'></iframe> */}
         <Link to='/dashboard'>DASHBOARD</Link>
