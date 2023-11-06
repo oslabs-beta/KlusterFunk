@@ -9,7 +9,7 @@ export default function Prom() {
         async function verifyToken() {
           const response = await fetch('/user/auth');
           if (response.status !== 202) {
-            navigate('/');
+            navigate('/login');
           }
         }
         verifyToken();
