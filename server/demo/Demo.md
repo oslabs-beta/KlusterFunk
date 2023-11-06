@@ -26,11 +26,11 @@ bins and configs are stored in a different spot, so use this instead:
 `kafka-topics --create --bootstrap-server localhost:<port> --replication-factor <# of factor> --partitions <# of partitions. --topic <topic name>`
 
 **For the demo, please run this command to create a topic, "test-topic":**
-`kafka-topics --create --bootstrap-server localhost:9091 --replication-factor 1 --partitions 1 --topic test-topic`
+`kafka-topics --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic test-topic`
 
 **List created topics:**
 to confirm you created a topic correctly, please run:
-`kafka-topics --list --bootstrap-server localhost:9091`
+`kafka-topics --list --bootstrap-server localhost:9092`
 
 **Run Prometheus**
 `/opt/homebrew/bin/prometheus --config.file=../ClusterFunk/server/demo/prometheus.yml`

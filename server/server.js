@@ -27,12 +27,15 @@ mongoose
 
 // import and use routes
 import { userRouter } from './routes/userRouter.js';
+import { metricsRouter } from './routes/metricsRouter.js'
 
 app.use('/user', userRouter);
 // unknown route handler
 app.get('/*', (req, res) => {
   return res.status(404).send('Page not found');
 });
+
+app.use('/metrics', metricsRouter)
 
 // global error handler
 app.use((err, req, res, next) => {
