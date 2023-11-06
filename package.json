@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"vite\" \"node server/server.js\" --open",
+    "dev": "concurrently \"vite\" \"nodemon server/server.js\" --open",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -22,6 +22,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.2.0",
     "mongoose": "^7.6.3",
+    "nodemon": "^3.0.1",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",

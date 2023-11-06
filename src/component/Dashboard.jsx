@@ -1,49 +1,14 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { Line } from 'react-chartjs-2';
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend,
-  } from 'chart.js';
-  
-
-  ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend
-  );
-
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Throughput',
-      },
-    },
-  };
+import LineGraph from './LineGraph'
 
 export default function Dashboard() {
   const [metricStore, setMetricStore] = useState({
-    bytesInValue: 'a',
-    bytesOutValue: 'a',
-    cpuValue: 'a',
-    ramValue: 'a',
-    totalReqCon: 'a',
+    bytesIn: 'a',
+    bytesOut: 'a',
+    cpuUsage: 'a',
+    brokerCount: 'a',
   })
   const [user, setUser] = useState('');
 
@@ -74,10 +39,12 @@ export default function Dashboard() {
 
     const interval = setInterval(async () => {
       const res = await fetch(endPoint)
+      console.log(res);
       if (!res.ok) {
         throw Error('failed to fetch at updating cluster')
       }
-      const metrics = await res.json()
+      const metrics = await JSON.parse(res);
+      console.log(metrics);
       setMetricStore({...metricStore, metrics})
     }, 3000)
     
@@ -85,6 +52,7 @@ export default function Dashboard() {
 
   }, [metricStore])
 
+  const graphTitle = 'Throughput'
   return (
     <main className='fixed inset-0 flex flex-col bg-slate-300 border-slate-500 border-2 rounded-lg'>
       <nav className='bg-white p-4 flex space-x-4 rounded-lg my-2 justify-between'>
@@ -92,7 +60,8 @@ export default function Dashboard() {
         <div>Hello, {user}!</div>
       </nav>
       <div className='bg-white flex-grow flex-col flex items-center justify-center rounded-lg'>
-        <div><h1>Active Broker Count: </h1></div>
+        <div><h1>Active Broker Count: {metricStore.brokerCount}</h1></div>
+        <LineGraph metricStore={metricStore} graphTitle={graphTitle}/>
       </div>
     </main>
   );
