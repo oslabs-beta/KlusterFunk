@@ -4,17 +4,6 @@ import { useState, useEffect, useLayoutEffect } from "react"
 export default function Homepage() {
     const [auth, setAuth] = useState(true)
 
-    const navigate = useNavigate()
-    useLayoutEffect(() => {
-        async function verifyToken() {
-          const response = await fetch('/user/auth');
-          if (response.status !== 202) {
-            navigate('/');
-          }
-        }
-        verifyToken();
-      }, []);
-
     return (
         <main className='fixed inset-0 flex flex-col bg-slate-300 border-slate-500 border-2 rounded-lg'>
         <nav className="bg-white p-4 flex space-x-4 rounded-lg my-2 justify-between">

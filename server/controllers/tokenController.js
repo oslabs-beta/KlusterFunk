@@ -14,10 +14,11 @@ tokenController.createToken = async (req, res, next) => {
 
 tokenController.verifyToken = async (req, res, next) => {
   const { token } = req.cookies;
-  const splitToken = token.split('.');
-  const { username } = JSON.parse(base64.decode(splitToken[1]));
-  res.locals.username = { username: username}
-  
+  if (token) {
+    const splitToken = token.split('.');
+    const { username } = JSON.parse(base64.decode(splitToken[1]));
+    res.locals.username = username
+  }
   // console.log(token);
   try {
     jwt.verify(token, process.env.JWT_SECRET)
