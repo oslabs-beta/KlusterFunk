@@ -1,11 +1,11 @@
 import { Link, useNavigate } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useLayoutEffect } from "react"
 
 export default function Homepage() {
     const [auth, setAuth] = useState(true)
 
     const navigate = useNavigate()
-    useEffect(() => {
+    useLayoutEffect(() => {
         async function verifyToken() {
           const response = await fetch('/user/auth');
           if (response.status !== 202) {

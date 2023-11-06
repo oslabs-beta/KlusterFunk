@@ -52,6 +52,7 @@ userController.login = async (req, res, next) => {
 userController.signup = async (req, res, next) => {
   try {
     const { username, password } = req.body;
+    console.log(req.body)
     if (!username || !password) {
       return next({
         log: 'Missing username or password in userController.signup',
@@ -62,7 +63,7 @@ userController.signup = async (req, res, next) => {
     const findUser = await User.findOne({ username: username });
     if (findUser) {
       return next({
-        log: 'Error in userController.signup',
+        log: 'Error in userController.signup, username already exists',
         status: 400,
         message: { err: 'Username is taken' },
       });
@@ -73,12 +74,12 @@ userController.signup = async (req, res, next) => {
       username: username,
       password: hashedPassword,
     });
-    // console.log('user from signup', user);
+    console.log('user from signup', user);
     res.locals.user = user;
     return next();
   } catch (err) {
     return next({
-      log: 'Error in userController.signup',
+      log: 'Error in userController.signup, unable to complete sign up',
       message: { err: 'Something went wrong! Whoops!' },
     });
   }
