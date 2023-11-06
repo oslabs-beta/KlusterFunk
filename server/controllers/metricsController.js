@@ -1,5 +1,4 @@
 const metricsController = {};
-const metricsController = {};
 
 metricsController.getDefaultMetrics = async (req, res, next) => {
   console.log('in metricsController');
@@ -16,9 +15,15 @@ metricsController.getDefaultMetrics = async (req, res, next) => {
 
   try {
     console.log('entered try block');
-    defaultMetrics.bytesIn = await getMetric('sum(rate(kafka_server_brokertopicmetrics_bytesin_total[1m]))');
-    defaultMetrics.bytesOut = await getMetric('sum(rate(kafka_server_brokertopicmetrics_bytesout_total[1m]))');
-    defaultMetrics.cpuUsage = await getMetric('sum(rate(process_cpu_seconds_total[1m])) * 100');
+    defaultMetrics.bytesIn = await getMetric(
+      'sum(rate(kafka_server_brokertopicmetrics_bytesin_total[1m]))'
+    );
+    defaultMetrics.bytesOut = await getMetric(
+      'sum(rate(kafka_server_brokertopicmetrics_bytesout_total[1m]))'
+    );
+    defaultMetrics.cpuUsage = await getMetric(
+      'sum(rate(process_cpu_seconds_total[1m])) * 100'
+    );
     defaultMetrics.brokerCount = await getMetric(
       'kafka_controller_kafkacontroller_activebrokercount'
     );
@@ -31,11 +36,7 @@ metricsController.getDefaultMetrics = async (req, res, next) => {
       log: 'Error in metrics.Controller in getDefaultMetrics',
       message: { err: 'Error when fetching metrics from Prom API' },
     });
-      message: { err: 'Error when fetching metrics from Prom API' },
-    });
   }
 };
-};
 
-export default metricsController;
 export default metricsController;
