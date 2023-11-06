@@ -100,7 +100,7 @@ userController.signup = async (req, res, next) => {
     return next({
       log: `userController.signup: ERROR: ${err}`,
       message: { err: 'Something went wrong! Whoops!' },
-      status: 500,
+      status: 500
     });
   }
 };
