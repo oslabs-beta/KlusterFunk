@@ -17,7 +17,7 @@ userController.login = async (req, res, next) => {
   // Confirms req.body includes username and password
   if (!username || !password) {
     return next({
-      log: 'Error in userController.createUser: missing username or password',
+      log: 'userController.createUser: ERROR: missing username or password',
       status: 400,
       message: { err: 'Username and password required' },
     });
@@ -27,7 +27,7 @@ userController.login = async (req, res, next) => {
     const user = await User.findOne({ username: username });
     if (!user) {
       return next({
-        log: 'Error in userController.login: unable to find user in database',
+        log: 'userController.login: ERROR: unable to find user in database',
         status: 401,
         message: { err: 'Invalid username or password' },
       });
@@ -36,7 +36,7 @@ userController.login = async (req, res, next) => {
     const result = await bcrypt.compare(password, user.password);
     if (!result) {
       return next({
-        log: 'Error in userController.login: invalid password',
+        log: 'userController.login: ERROR: invalid password',
         status: 401,
         message: { err: 'Invalid username or password' },
       });
@@ -47,7 +47,7 @@ userController.login = async (req, res, next) => {
     }
   } catch (err) {
     return next({
-      log: `${err}: Error in userController.login`,
+      log: `userController.login: ERROR: ${err}`,
       message: { err: 'Something went wrong! Whoops!' },
       status: 500,
     });
@@ -70,7 +70,7 @@ userController.signup = async (req, res, next) => {
   // Confirms req.body includes username and password
   if (!username || !password) {
     return next({
-      log: 'Error in userController.signup: missing username or password',
+      log: 'userController.signup: ERROR: missing username or password',
       status: 400,
       message: { err: 'username and password required' },
     });
@@ -81,7 +81,7 @@ userController.signup = async (req, res, next) => {
     const findUser = await User.findOne({ username: username });
     if (findUser) {
       return next({
-        log: 'Error in userController.signup: username already exists',
+        log: 'userController.signup: ERROR: username already exists',
         status: 400,
         message: { err: 'Username is taken' },
       });
@@ -100,6 +100,7 @@ userController.signup = async (req, res, next) => {
     return next({
       log: `userController.signup: ERROR: ${err}`,
       message: { err: 'Something went wrong! Whoops!' },
+      status: 500,
     });
   }
 };
