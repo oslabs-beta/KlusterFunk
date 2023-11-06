@@ -88,7 +88,7 @@ export default function Login(props) {
             <button
             id='signup'
             className='border-slate-500 border-1 rounded-lg bg-slate-200'
-            type='submit'
+            type={auth === 'login' ? 'button' : 'submit'}
             onClick={() => {setAuth('signup')}}
             >
             Signup
