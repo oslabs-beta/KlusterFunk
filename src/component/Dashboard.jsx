@@ -86,7 +86,7 @@ export default function Dashboard() {
     <main className='fixed inset-0 flex flex-col bg-slate-300 border-slate-500 border-2 rounded-lg'>
       <nav className='bg-white p-4 flex space-x-4 rounded-lg my-2 justify-between'>
         <div>Cluster: {promAddress}</div>
-        <div>Hello, {user}</div>
+        <div>Hello, {user}!</div>
       </nav>
       <div className='bg-white flex-grow flex-col flex items-center justify-center rounded-lg'>
         <div><h1>Active Broker Count: </h1></div>

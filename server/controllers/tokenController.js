@@ -16,7 +16,7 @@ tokenController.verifyToken = async (req, res, next) => {
   const { token } = req.cookies;
   const splitToken = token.split('.');
   const { username } = JSON.parse(base64.decode(splitToken[1]));
-  res.locals.username = { username: username}
+  res.locals.username = username
   
   // console.log(token);
   try {
