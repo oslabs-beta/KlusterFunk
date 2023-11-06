@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@christiangalsterer/kafkajs-prometheus-exporter": "^3.0.0",
+    "base-64": "^1.0.0",
     "bcrypt": "^5.1.1",
     "chart.js": "^4.4.0",
     "cookie-parser": "^1.4.6",
