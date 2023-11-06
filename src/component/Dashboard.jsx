@@ -51,7 +51,7 @@ export default function Dashboard() {
   const location = useLocation();
 
 
-  const { promAddress } = location.state ? location.state : null
+  const { promAddress } = location.state ? location.state : { promAddress: null }
   
 
   useLayoutEffect(() => {
