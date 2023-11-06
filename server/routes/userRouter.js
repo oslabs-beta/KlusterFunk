@@ -12,7 +12,7 @@ router.post('/login', userController.login, tokenController.createToken, (req, r
 })
 
 router.get('/auth', tokenController.verifyToken, (req, res) => {
-  return res.status(202).json({ message: 'user authorized'});
+  return res.status(202).json({ username: res.locals.username});
 })
 
 export {router as userRouter};
