@@ -5,7 +5,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Homepage from './component/Homepage.jsx'
 import Login from './component/login.jsx'
-import Cluster from './component/Cluster.jsx'
+import Prom from './component/enterProm.jsx'
 import Dashboard from './component/Dashboard.jsx'
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Homepage />}/>
         <Route path='/login' element={<Login />}/>
-        <Route path='/cluster' element={<Cluster />}/>
+        <Route path='/cluster' element={<Prom />}/>
         <Route path='/dashboard' element={<Dashboard />}/>
       </Routes>
   )
