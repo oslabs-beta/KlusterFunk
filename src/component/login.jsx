@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function Login(props) {
     const [auth, setAuth] = useState('login')
@@ -8,12 +8,16 @@ export default function Login(props) {
     const [confirmPassword, setConfirmPassword] = useState('')
     const [infoMatch, setInfoMatch] = useState('')
     const navigate = useNavigate();
+
+    useEffect(() => {
+        (confirmPassword.length > 0 && password !== confirmPassword) ? setInfoMatch('passwords do not match') : setInfoMatch('')
+    }, [confirmPassword])
+
     // login or signup requested
     const handleSubmit = async (e) => {
         e.preventDefault();
         const loginEndpoint = `/user/${auth}`
         
-        if (password !== confirmPassword) setInfoMatch(false);
         if (password === confirmPassword || auth === 'login') {
             const res = await fetch(loginEndpoint, {
                 method: 'POST',
@@ -47,7 +51,6 @@ export default function Login(props) {
                 case 'confirmPassword':
                     setConfirmPassword(e.target.value);
             }
-            (confirmPassword.length > 0 && password !== confirmPassword) ? setInfoMatch('passwords do not match') : setInfoMatch('')
         }}>
             <input 
             className='bg-slate-100 rounded'
