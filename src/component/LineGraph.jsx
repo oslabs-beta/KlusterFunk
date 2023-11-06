@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Line } from 'react-chartjs-2';
+import { Colors } from 'chart.js';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -21,24 +22,27 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Colors
 );
 
-const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top',
-    },
-    title: {
-      display: true,
-      text: 'Throughput',
-    },
-  },
-};
 
-export default function LineGraph(props) {
+
+export default function LineGraph({graphTitle, metricStore, timeLabels }) {
   const labels = ['14:00', '14:05', '14:10', '14:15'];
+  const {bytesIn, bytesOut, cpuUsage} = metricStore;
+
+  const options = {
+    responsive: true,
+    plugins: {
+      colors: { forceOverride: true },
+      legend: { position: 'top' },
+      title: { 
+        display: true,
+        text: graphTitle,
+      },
+    },
+  };
   
   const data = {
     labels,
@@ -59,6 +63,6 @@ export default function LineGraph(props) {
   };
   
   return (
-    <></>
+    <Line options={options} data={data} />
   )
 }
