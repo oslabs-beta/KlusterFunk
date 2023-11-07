@@ -39,13 +39,17 @@ export default function Dashboard() {
 
     const interval = setInterval(async () => {
       const res = await fetch(endPoint)
-      console.log(res);
       if (!res.ok) {
         throw Error('failed to fetch at updating cluster')
       }
-      const metrics = await JSON.parse(res);
-      console.log(metrics);
-      setMetricStore({...metricStore, metrics})
+      const metrics = await res.json();
+      const newStore = {
+        bytesIn: metrics.bytesIn[1],
+        bytesOut: metrics.bytesIn[1],
+        cpuUsage: metrics.cpuUsage[1],
+        brokerCount: metrics.brokerCount[1],
+      }
+      setMetricStore({...metricStore, ...newStore})
     }, 3000)
     
     return () => clearInterval(interval)
@@ -61,7 +65,7 @@ export default function Dashboard() {
       </nav>
       <div className='bg-white flex-grow flex-col flex items-center justify-center rounded-lg'>
         <div><h1>Active Broker Count: {metricStore.brokerCount}</h1></div>
-        <LineGraph metricStore={metricStore} graphTitle={graphTitle}/>
+        <div><LineGraph metricStore={metricStore} graphTitle={graphTitle} /></div>
       </div>
     </main>
   );

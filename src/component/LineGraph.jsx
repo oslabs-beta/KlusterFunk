@@ -2,7 +2,6 @@ import React, { useLayoutEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Line } from 'react-chartjs-2';
-import { Colors } from 'chart.js';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -12,6 +11,7 @@ import {
     Title,
     Tooltip,
     Legend,
+    Colors
   } from 'chart.js';
   
 
