@@ -1,7 +1,6 @@
 const metricsController = {};
 
 metricsController.getDefaultMetrics = async (req, res, next) => {
-  console.log('in metricsController');
   const defaultMetrics = {};
   const { promAddress } = req.query;
   // console.log(req.query);
@@ -10,12 +9,10 @@ metricsController.getDefaultMetrics = async (req, res, next) => {
       `${promAddress}/api/v1/query?query=${promQuery}`
     );
     response = await response.json();
-    console.log(response.data.result[0].value[1]);
     return response.data.result[0].value;
   };
 
   try {
-    console.log('entered try block');
     defaultMetrics.bytesIn = await getMetric('sum(rate(kafka_server_brokertopicmetrics_bytesin_total[1m]))');
     defaultMetrics.bytesOut = await getMetric('sum(rate(kafka_server_brokertopicmetrics_bytesout_total[1m]))');
     defaultMetrics.cpuUsage = await getMetric('sum(rate(process_cpu_seconds_total[1m])) * 100');
