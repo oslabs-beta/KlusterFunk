@@ -13,7 +13,7 @@ scrape_configs:
   - job_name: "demo-app"
 
     # Override the global default and scrape targets from this job every 5 seconds.
-    scrape_interval: 5s
+    scrape_interval: 2s
 
     static_configs:
       - targets: ["localhost:8081"]
