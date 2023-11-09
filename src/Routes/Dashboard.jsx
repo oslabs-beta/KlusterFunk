@@ -118,7 +118,7 @@ export default function Dashboard() {
     }, 2000);
 
     return () => clearInterval(interval);
-  }, [metricStore]);
+  }, [promAddress]);
 
   const graphTitle = 'Throughput';
   return (

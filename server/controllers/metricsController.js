@@ -3,7 +3,7 @@ const metricsController = {};
 metricsController.getDefaultMetrics = async (req, res, next) => {
   const defaultMetrics = {};
   const { promAddress } = req.query;
-  // console.log(req.query);
+  console.log(req.query);
   const getMetric = async (promQuery) => {
     let response = await fetch(
       `${promAddress}/api/v1/query?query=${promQuery}`
