@@ -1,7 +1,9 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import LineGraph from './LineGraph';
+import LineGraph from '../component/LineGraph.jsx';
+import PromAddress from '../component/PromAddress.jsx';
+import Navbar from '../component/Navbar.jsx';
 
 export default function Dashboard() {
   const [metricStore, setMetricStore] = useState({
@@ -63,9 +65,9 @@ export default function Dashboard() {
     ],
   });
   const [user, setUser] = useState('');
+  const [promAddress, setPromAddress] = useState(null)
 
   const navigate = useNavigate();
-  const location = useLocation();
 
   const graphArray = [];
   for (let i in metricStore) {
@@ -78,10 +80,6 @@ export default function Dashboard() {
       />
     );
   }
-
-  const { promAddress } = location.state
-    ? location.state
-    : { promAddress: null };
 
   useLayoutEffect(() => {
     async function verifyToken() {
@@ -125,15 +123,19 @@ export default function Dashboard() {
   const graphTitle = 'Throughput';
   return (
     <main className='fixed inset-0 flex flex-col bg-slate-300 border-slate-500 border-2 rounded-lg'>
-      <nav className='bg-white p-4 flex space-x-4 rounded-lg my-2 justify-between'>
-        <div>Prometheus Port: {promAddress}</div>
-        <div>Hello, {user}!</div>
-      </nav>
+      <Navbar promAddress={promAddress} user={user}/>
       <div className='overflow-y-auto bg-white items-center justify-center rounded-lg'>
+        {promAddress && (
+        <>
         <div>
           {/* <h1>Active Broker Count: {metricStore.brokerCount}</h1> */}
         </div>
         {graphArray}
+        </>
+        )}
+        {!promAddress && (
+          <PromAddress setPromAddress={setPromAddress}/>
+        )}
       </div>
     </main>
   );
