@@ -4,6 +4,8 @@ import 'dotenv/config';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import { userRouter } from './routes/userRouter.js';
+import { metricsRouter } from './routes/metricsRouter.js';
 
 const app = express();
 const PORT = process.env.PORT || 3030;
@@ -13,7 +15,7 @@ app.use(cookieParser());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
-// connect to database
+// Connect to database
 mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
@@ -23,20 +25,16 @@ mongoose
   .then(() => console.log('Connected to Mongo DB'))
   .catch((err) => console.log(err));
 
-// import and use routes
-import { userRouter } from './routes/userRouter.js';
-import { metricsRouter } from './routes/metricsRouter.js';
-
+// Set up routers
 app.use('/user', userRouter);
+app.use('/metrics', metricsRouter);
 
-app.use('/metrics', metricsRouter)
-
-// unknown route handler
+// Unknown route handler
 app.get('/*', (req, res) => {
   return res.status(404).send('Page not found');
 });
 
-// global error handler
+// Global error handler
 app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
