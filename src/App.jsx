@@ -3,10 +3,9 @@ import { Routes, Route } from 'react-router-dom'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Homepage from './component/Homepage.jsx'
-import Login from './component/login.jsx'
-import Prom from './component/enterProm.jsx'
-import Dashboard from './component/Dashboard.jsx'
+import Homepage from './Routes/Homepage.jsx'
+import Login from './Routes/login.jsx'
+import Dashboard from './Routes/Dashboard.jsx'
 
 function App() {
 
@@ -14,7 +13,6 @@ function App() {
       <Routes>
         <Route path='/' element={<Homepage />}/>
         <Route path='/login' element={<Login />}/>
-        <Route path='/cluster' element={<Prom />}/>
         <Route path='/dashboard' element={<Dashboard />}/>
       </Routes>
   )
