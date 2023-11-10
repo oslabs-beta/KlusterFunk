@@ -33,15 +33,19 @@ export default function LineGraph({
 }) {
   const labels = [];
   for (let i = 0; i < metricStore.length; i++) {
-    let time = new Date(metricStore[i][0] * 1000);
-    time = time.toTimeString().slice(0, 8);
-    labels.push(time);
+    if (metricStore[i][0] === '-') continue;
+    else {
+      let time = new Date(metricStore[i][0] * 1000);
+      time = time.toTimeString().slice(0, 8);
+      labels.push(time);
+    }
     // console.log('label time: ', metric[i][0]);
   }
   console.log(labels);
 
   const dataArr = [];
   for (let i = 0; i < metricStore.length; i++) {
+    if (metricStore[i][0] === '-') continue;
     dataArr.push(metricStore[i][1]);
   }
   // console.log(dataArr);

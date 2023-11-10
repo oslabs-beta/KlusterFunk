@@ -49,20 +49,7 @@ export default function Dashboard() {
       ['-', '-'],
       ['-', '-'],
     ],
-    brokerCount: [
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-    ],
+    brokerCount: [],
   });
   const [user, setUser] = useState('');
   const [promAddress, setPromAddress] = useState(null)
@@ -71,6 +58,7 @@ export default function Dashboard() {
 
   const graphArray = [];
   for (let i in metricStore) {
+    if (i === 'brokerCount') continue;
     graphArray.push(
       <LineGraph
         metricStore={metricStore[i]}
@@ -113,12 +101,13 @@ export default function Dashboard() {
       newStore.bytesOut.push(metrics.bytesOut);
       newStore.cpuUsage = newStore.cpuUsage.slice(1);
       newStore.cpuUsage.push(metrics.cpuUsage);
+      newStore.brokerCount = metrics.brokerCount
 
       setMetricStore(newStore);
     }, 2000);
 
     return () => clearInterval(interval);
-  }, [promAddress]);
+  }, [promAddress, metricStore]);
 
   const graphTitle = 'Throughput';
   return (
@@ -127,9 +116,7 @@ export default function Dashboard() {
       <div className='overflow-y-auto bg-white items-center justify-center rounded-lg'>
         {promAddress && (
         <>
-        <div>
-          {/* <h1>Active Broker Count: {metricStore.brokerCount}</h1> */}
-        </div>
+          <h1>Active Broker Count: {metricStore.brokerCount[1]}</h1>
         {graphArray}
         </>
         )}
