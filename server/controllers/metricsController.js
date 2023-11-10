@@ -3,7 +3,7 @@ const metricsController = {};
 metricsController.getDefaultMetrics = async (req, res, next) => {
   const defaultMetrics = {};
   const { promAddress } = req.query;
-  console.log(req.query);
+  // console.log(req.query);
   const getMetric = async (promQuery) => {
     let response = await fetch(
       `${promAddress}/api/v1/query?query=${promQuery}`
@@ -19,7 +19,7 @@ metricsController.getDefaultMetrics = async (req, res, next) => {
     defaultMetrics.brokerCount = await getMetric(
       'kafka_controller_kafkacontroller_activebrokercount'
     );
-    console.log(defaultMetrics);
+    // console.log(defaultMetrics);
 
     res.locals.defaultMetrics = defaultMetrics;
     return next();

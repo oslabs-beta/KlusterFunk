@@ -41,7 +41,7 @@ export default function LineGraph({
     }
     // console.log('label time: ', metric[i][0]);
   }
-  console.log(labels);
+  // console.log(labels);
 
   const dataArr = [];
   for (let i = 0; i < metricStore.length; i++) {
