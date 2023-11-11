@@ -94,7 +94,7 @@ export default function Dashboard() {
         throw Error('failed to fetch at updating cluster');
       }
       const metrics = await res.json();
-      const newStore = metricStore;
+      const newStore = { ...metricStore };
 
       newStore.bytesIn = newStore.bytesIn.slice(1);
       newStore.bytesIn.push(metrics.bytesIn);
