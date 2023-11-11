@@ -34,4 +34,8 @@ describe('Login', () => {
     const infoMatch = screen.getByRole('infoMatch');
     expect(infoMatch).toHaveTextContent('passwords do not match');
   });
+
+  test('Login or Signup buttons send fetch request', () => {
+    
+  });
 });
