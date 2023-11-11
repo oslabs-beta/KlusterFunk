@@ -4,8 +4,13 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import LineGraph from '../component/LineGraph.jsx';
 import PromAddress from '../component/PromAddress.jsx';
 import Navbar from '../component/Navbar.jsx';
+import useMetricStore from '../Hooks/metricStore.jsx';
 
 export default function Dashboard() {
+  const [user, setUser] = useState('');
+  const [promAddress, setPromAddress] = useState(null)
+  // const [metricStore, resetMetricStore] = useMetricStore(promAddress);
+
   const [metricStore, setMetricStore] = useState({
     bytesIn: [
       ['-', '-'],
@@ -51,8 +56,6 @@ export default function Dashboard() {
     ],
     brokerCount: [],
   });
-  const [user, setUser] = useState('');
-  const [promAddress, setPromAddress] = useState(null)
 
   const navigate = useNavigate();
 
