@@ -10,16 +10,17 @@ const kafka = new Kafka({
 });
 
 const producer = kafka.producer();
+//demo group?
 const consumer = kafka.consumer({ groupId: "Group-01" });
 const admin = kafka.admin();
 
-// set up the prometheus client
+// set up the prometheus client --- CHOP
 const collectDefaultMetrics = promClient.collectDefaultMetrics;
 const Registry = promClient.Registry;
 const register = new Registry();
 collectDefaultMetrics({ register });
 
-//monitor KafkaJS admin
+//monitor KafkaJS admin //// CHOP CHOP CHOP
 kafkaExporter.monitorKafkaJSAdmin(admin, register, {
   defaultLabels: { client_id: clientId },
 });
@@ -36,7 +37,7 @@ kafkaExporter.monitorKafkaJSConsumer(consumer, register, {
 
 await producer.connect();
 await consumer.connect();
-await admin.connect();
+await admin.connect(); // CHOP
 
 // How to list topics
 // await console.log("TOPICS TOPICS", await admin.listTopics());
