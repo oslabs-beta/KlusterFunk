@@ -76,7 +76,7 @@ export default function Login(props) {
             placeholder='Confirm password'
             /> 
             <br />
-            <dd className="text-rose-500 text-xs">{infoMatch}<br /></dd>
+            <dd role='infoMatch' className="text-rose-500 text-xs">{infoMatch}<br /></dd>
             </>
             )}
             {auth === 'login' && (

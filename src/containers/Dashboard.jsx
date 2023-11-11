@@ -85,6 +85,7 @@ export default function Dashboard() {
   }, []);
 
   useEffect(() => {
+    // check condition of useEffect
     const endPoint = `/metrics/default?promAddress=${promAddress}`;
 
     const interval = setInterval(async () => {
