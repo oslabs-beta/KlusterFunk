@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+
 import LineGraph from '../component/LineGraph.jsx';
 import PromAddress from '../component/PromAddress.jsx';
 import Navbar from '../component/Navbar.jsx';
