@@ -1,5 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 import useAuthenticate from '../Hooks/useAuthenticate.jsx';
 import LineGraph from '../component/LineGraph.jsx';
@@ -11,11 +10,10 @@ const Dashboard = () => {
   const [user, setUser] = useState('');
 
   useAuthenticate(setUser);
-  
+
   const [promAddress, setPromAddress] = useState(null)
 
   const [metricStore, resetMetricStore] = useMetricStore(promAddress);
-  const navigate = useNavigate();
 
   const graphArray = [];
   for (let i in metricStore) {
@@ -29,21 +27,6 @@ const Dashboard = () => {
       />
     );
   }
-
-  // useLayoutEffect(() => {
-  //   async function verifyToken() {
-  //     const res = await fetch('/user/auth');
-  //     if (res.status === 401) {
-  //       return navigate('/login');
-  //     }
-  //     if (!res.ok) {
-  //       throw Error('failed to authenticate user');
-  //     }
-  //     const { username } = await res.json();
-  //     setUser(username);
-  //   }
-  //   verifyToken();
-  // }, []);
 
   return (
     <main className='fixed inset-0 flex flex-col bg-slate-300 border-slate-500 border-2 rounded-lg'>

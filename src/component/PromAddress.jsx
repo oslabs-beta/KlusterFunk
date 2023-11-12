@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useLayoutEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const PromAddress = ({ setPromAddress }) => {
     const [cluster, setCluster] = useState('')

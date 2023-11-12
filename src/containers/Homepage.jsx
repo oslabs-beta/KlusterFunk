@@ -1,27 +1,13 @@
-import { Link, useNavigate } from "react-router-dom"
-import { useState, useRef, useLayoutEffect } from "react"
+import { Link } from "react-router-dom"
+import { useState, useRef } from "react"
 
 import useAuthenticate from "../Hooks/useAuthenticate.jsx"
 import Navbar from "../component/Navbar.jsx"
 
 const Homepage = () => {
     const [user, setUser] = useState('');
-    
-    useAuthenticate(setUser)
-    // useLayoutEffect(() => {
-    //     async function verifyToken() {
-    //       const res = await fetch('/user/auth');
-    //       if (res.status === 401) {
-    //         return;
-    //       }
-    //       if (!res.ok) {
-    //         throw Error('failed to authenticate user')
-    //       }
-    //       const { username } = await res.json()
-    //       setUser(username)
-    //     }
-    //     verifyToken();
-    // }, []);
+
+    useAuthenticate(setUser);
 
     const featuresRef = useRef(null);
     const aboutMeRef = useRef(null);
