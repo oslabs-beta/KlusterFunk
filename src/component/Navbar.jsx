@@ -2,12 +2,9 @@ import { Link, useLocation } from "react-router-dom"
 
 
 
-const Navbar = ({ promAddress, user, scrollToSection }) => {
+const Navbar = ({ promAddress, user, scrollToSection, signout }) => {
     const location = useLocation()
 
-    const userSignout = () => {
-        return console.log('not functional rn')
-    }
 
     return (
         <nav className="bg-white p-4 flex space-x-4 rounded-lg my-2 justify-between">
@@ -24,7 +21,7 @@ const Navbar = ({ promAddress, user, scrollToSection }) => {
             {user && (
                 <>
                 <div>Hello, {user}!</div>
-                <button type='button' onClick={userSignout}>Signout</button>
+                <button type='button' onClick={() => { signout() }}>Signout</button>
                 </>
             )}
         </nav>

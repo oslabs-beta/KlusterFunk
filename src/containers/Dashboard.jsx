@@ -8,11 +8,8 @@ import useMetricStore from '../Hooks/useMetricStore.jsx';
 
 const Dashboard = () => {
   const [user, setUser] = useState('');
-
-  useAuthenticate(setUser);
-
+  const [ signout ] = useAuthenticate(setUser);
   const [promAddress, setPromAddress] = useState(null)
-
   const [metricStore, resetMetricStore] = useMetricStore(promAddress);
 
   const graphArray = [];
@@ -30,7 +27,7 @@ const Dashboard = () => {
 
   return (
     <main className='fixed inset-0 flex flex-col bg-slate-300 border-slate-500 border-2 rounded-lg'>
-      <Navbar promAddress={promAddress} user={user}/>
+      <Navbar promAddress={promAddress} user={user} signout={signout}/>
       <div className='overflow-y-auto bg-white items-center justify-center rounded-lg'>
         {promAddress && (
         <>

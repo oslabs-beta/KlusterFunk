@@ -15,4 +15,8 @@ router.get('/auth', tokenController.verifyToken, (req, res) => {
   return res.status(202).json({ username: res.locals.username});
 })
 
+router.get('/signout', tokenController.deleteToken, (req, res) => {
+  return res.status(202).json({ message: 'cookie deleted' })
+})
+
 export {router as userRouter};

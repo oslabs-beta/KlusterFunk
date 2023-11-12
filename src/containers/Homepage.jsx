@@ -6,9 +6,7 @@ import Navbar from "../component/Navbar.jsx"
 
 const Homepage = () => {
     const [user, setUser] = useState('');
-
-    useAuthenticate(setUser);
-
+    const [ signout ] = useAuthenticate(setUser);
     const featuresRef = useRef(null);
     const aboutMeRef = useRef(null);
 
@@ -28,7 +26,7 @@ const Homepage = () => {
 
     return (
         <main className='fixed inset-0 flex flex-col bg-slate-300 border-slate-500 border-2 rounded-lg'>
-        <Navbar user={user} scrollToSection={scrollToSection} />
+        <Navbar user={user} scrollToSection={scrollToSection} signout={signout}/>
         <div className='space-y-4 max-h-screen overflow-y-auto'>
             <section ref={featuresRef} id='features' className="bg-white flex-col flex items-center justify-center rounded-lg">
                 <Link 
