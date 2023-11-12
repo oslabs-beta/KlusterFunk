@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import LineGraph from '../component/LineGraph.jsx';
 import PromAddress from '../component/PromAddress.jsx';
@@ -9,54 +9,8 @@ import useMetricStore from '../Hooks/metricStore.jsx';
 export default function Dashboard() {
   const [user, setUser] = useState('');
   const [promAddress, setPromAddress] = useState(null)
-  // const [metricStore, resetMetricStore] = useMetricStore(promAddress);
 
-  const [metricStore, setMetricStore] = useState({
-    bytesIn: [
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-    ],
-    bytesOut: [
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-    ],
-    cpuUsage: [
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-      ['-', '-'],
-    ],
-    brokerCount: [],
-  });
-
+  const [metricStore, resetMetricStore] = useMetricStore(promAddress);
   const navigate = useNavigate();
 
   const graphArray = [];
@@ -87,33 +41,6 @@ export default function Dashboard() {
     verifyToken();
   }, []);
 
-  useEffect(() => {
-    // check condition of useEffect
-    const endPoint = `/metrics/default?promAddress=${promAddress}`;
-
-    const interval = setInterval(async () => {
-      const res = await fetch(endPoint);
-      if (!res.ok) {
-        throw Error('failed to fetch at updating cluster');
-      }
-      const metrics = await res.json();
-      const newStore = { ...metricStore };
-
-      newStore.bytesIn = newStore.bytesIn.slice(1);
-      newStore.bytesIn.push(metrics.bytesIn);
-      newStore.bytesOut = newStore.bytesOut.slice(1);
-      newStore.bytesOut.push(metrics.bytesOut);
-      newStore.cpuUsage = newStore.cpuUsage.slice(1);
-      newStore.cpuUsage.push(metrics.cpuUsage);
-      newStore.brokerCount = metrics.brokerCount
-
-      setMetricStore(newStore);
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [promAddress, metricStore]);
-
-  const graphTitle = 'Throughput';
   return (
     <main className='fixed inset-0 flex flex-col bg-slate-300 border-slate-500 border-2 rounded-lg'>
       <Navbar promAddress={promAddress} user={user}/>

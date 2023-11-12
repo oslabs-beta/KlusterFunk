@@ -56,7 +56,7 @@ const useMetricStore = (promAddress) => {
             try {
                 const res = await fetch(endPoint);
 
-                if (!res) {
+                if (!res.ok) {
                     throw Error(`Failed to fetch metrics with promAddress ${promAddress}`)
                 }
 
