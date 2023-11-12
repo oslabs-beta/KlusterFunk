@@ -3,7 +3,7 @@ import { useState, useRef, useLayoutEffect } from "react"
 
 import Navbar from "../component/Navbar.jsx"
 
-export default function Homepage() {
+const Homepage = () => {
     const [user, setUser] = useState('');
     
     useLayoutEffect(() => {
@@ -121,3 +121,5 @@ export default function Homepage() {
         </main>
     )
 }
+
+export default Homepage;

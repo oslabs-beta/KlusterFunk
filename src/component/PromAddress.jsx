@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function PromAddress({ setPromAddress }) {
+const PromAddress = ({ setPromAddress }) => {
     const [cluster, setCluster] = useState('')
 
     return (
@@ -27,3 +27,5 @@ export default function PromAddress({ setPromAddress }) {
         </main>
     )
 }
+
+export default PromAddress;

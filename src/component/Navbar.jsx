@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom"
 
 
 
-export default function Navbar({ promAddress, user, scrollToSection }) {
+const Navbar = ({ promAddress, user, scrollToSection }) => {
     const location = useLocation()
 
     const userSignout = () => {
@@ -31,3 +31,5 @@ export default function Navbar({ promAddress, user, scrollToSection }) {
         </nav>
     )
 }
+
+export default Navbar;

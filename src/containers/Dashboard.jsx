@@ -6,7 +6,7 @@ import PromAddress from '../component/PromAddress.jsx';
 import Navbar from '../component/Navbar.jsx';
 import useMetricStore from '../Hooks/metricStore.jsx';
 
-export default function Dashboard() {
+const Dashboard = () => {
   const [user, setUser] = useState('');
   const [promAddress, setPromAddress] = useState(null)
 
@@ -59,3 +59,4 @@ export default function Dashboard() {
   );
 }
 
+export default Dashboard;
