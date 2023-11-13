@@ -13,7 +13,6 @@ metricsController.getDefaultMetrics = async (req, res, next) => {
   };
 
   try {
-    console.log('entered try block');
     defaultMetrics.bytesIn = await getMetric(
       'sum(rate(kafka_server_brokertopicmetrics_bytesin_total[1m]))'
     );

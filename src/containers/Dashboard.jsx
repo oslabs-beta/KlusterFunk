@@ -36,9 +36,7 @@ const Dashboard = () => {
         {graphArray}
         </>
         )}
-        {!promAddress && (
-          <PromAddress setPromAddress={setPromAddress}/>
-        )}
+        {!promAddress && <PromAddress setPromAddress={setPromAddress} />}
       </div>
     </main>
   );
