@@ -52,7 +52,7 @@ export default function Dashboard() {
     brokerCount: [],
   });
   const [user, setUser] = useState('');
-  const [promAddress, setPromAddress] = useState(null)
+  const [promAddress, setPromAddress] = useState(null);
 
   const navigate = useNavigate();
 
@@ -94,7 +94,11 @@ export default function Dashboard() {
         throw Error('failed to fetch at updating cluster');
       }
       const metrics = await res.json();
-      const newStore = { ...metricStore };
+      const newStore = structuredClone(metricStore);
+      console.log(
+        'metricStore.bytesIn[0] !== newStore.bytesIn[0]',
+        metricStore.bytesIn[0] !== newStore.bytesIn[0]
+      );
 
       newStore.bytesIn = newStore.bytesIn.slice(1);
       newStore.bytesIn.push(metrics.bytesIn);
@@ -102,7 +106,7 @@ export default function Dashboard() {
       newStore.bytesOut.push(metrics.bytesOut);
       newStore.cpuUsage = newStore.cpuUsage.slice(1);
       newStore.cpuUsage.push(metrics.cpuUsage);
-      newStore.brokerCount = metrics.brokerCount
+      newStore.brokerCount = metrics.brokerCount;
 
       setMetricStore(newStore);
     }, 2000);
@@ -113,19 +117,16 @@ export default function Dashboard() {
   const graphTitle = 'Throughput';
   return (
     <main className='fixed inset-0 flex flex-col bg-slate-300 border-slate-500 border-2 rounded-lg'>
-      <Navbar promAddress={promAddress} user={user}/>
+      <Navbar promAddress={promAddress} user={user} />
       <div className='overflow-y-auto bg-white items-center justify-center rounded-lg'>
         {promAddress && (
-        <>
-          <h1>Active Broker Count: {metricStore.brokerCount[1]}</h1>
-        {graphArray}
-        </>
+          <>
+            <h1>Active Broker Count: {metricStore.brokerCount[1]}</h1>
+            {graphArray}
+          </>
         )}
-        {!promAddress && (
-          <PromAddress setPromAddress={setPromAddress}/>
-        )}
+        {!promAddress && <PromAddress setPromAddress={setPromAddress} />}
       </div>
     </main>
   );
 }
-

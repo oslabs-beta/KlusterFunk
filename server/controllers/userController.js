@@ -72,7 +72,7 @@ userController.signup = async (req, res, next) => {
     return next({
       log: 'userController.signup: ERROR: missing username or password',
       status: 400,
-      message: { err: 'username and password required' },
+      message: { err: 'Username and password required' },
     });
   }
 
@@ -100,7 +100,7 @@ userController.signup = async (req, res, next) => {
     return next({
       log: `userController.signup: ERROR: ${err}`,
       message: { err: 'Something went wrong! Whoops!' },
-      status: 500
+      status: 500,
     });
   }
 };
