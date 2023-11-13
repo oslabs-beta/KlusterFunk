@@ -1,7 +1,7 @@
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 
-export default function Login(props) {
+const Login = () => {
     const [auth, setAuth] = useState('login')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -108,3 +108,5 @@ export default function Login(props) {
         </main>
     )
 }
+
+export default Login;
