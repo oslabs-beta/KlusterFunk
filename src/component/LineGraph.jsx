@@ -1,4 +1,3 @@
-import React, { useLayoutEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -23,12 +22,12 @@ ChartJS.register(
   Colors
 );
 
-export default function LineGraph({
+const LineGraph = ({
   graphTitle,
   metricStore,
   timeLabels,
   dataLabel,
-}) {
+}) => {
   const labels = [];
   for (let i = 0; i < metricStore.length; i++) {
     if (metricStore[i][0] === '-') continue;
@@ -74,3 +73,5 @@ export default function LineGraph({
 
   return <Line className='h-12 w-16' options={options} data={data} />;
 }
+
+export default LineGraph;

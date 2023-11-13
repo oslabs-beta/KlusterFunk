@@ -60,6 +60,20 @@ tokenController.verifyToken = async (req, res, next) => {
   }
 };
 
+tokenController.deleteToken = async (req, res, next) => {
+  const { token } = req.cookies;
+  console.log('in delete token')
+  if (!token) {
+    return next({
+      log: 'tokenController.verifyToken: ERROR: no token in req.cookies',
+      message: { err: 'Unable to verify' },
+      status: 401,
+    });
+  }
+  res.clearCookie('token');
+  return next();
+}
+
 export default tokenController;
 
 /*
