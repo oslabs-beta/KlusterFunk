@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom"
 import useScroll from "../Hooks/useScroll.jsx"
 
 const Navbar = ({ promAddress, user, signout, refs }) => {
-    const { featuresRef, aboutMeRef } = refs;
 
     const location = useLocation();
     const scroll = useScroll();
@@ -13,8 +12,8 @@ const Navbar = ({ promAddress, user, signout, refs }) => {
             <Link to='/' preventScrollReset={true}>Home</Link>
             {location.pathname === '/' && (
                 <>
-                <Link to='#' onClick={() => {scroll(featuresRef)}}>Features</Link>
-                <Link to='#' onClick={() => {scroll(aboutMeRef)}}>Team</Link>
+                <Link to='#' onClick={() => {scroll(refs.featuresRef)}}>Features</Link>
+                <Link to='#' onClick={() => {scroll(refs.aboutMeRef)}}>Team</Link>
                 </>
             )}
             <Link to='http://google.com'>Blog</Link>

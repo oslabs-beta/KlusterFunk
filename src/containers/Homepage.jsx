@@ -30,11 +30,13 @@ const Homepage = () => {
     //   }
     // }
 
+    // removed section ids
+
     return (
         <main className='fixed inset-0 flex flex-col bg-slate-300 border-slate-500 border-2 rounded-lg'>
         <Navbar user={user} signout={signout} refs={refs}/>
         <div className='space-y-4 max-h-screen overflow-y-auto'>
-            <section ref={featuresRef} id='features' className="bg-white flex-col flex items-center justify-center rounded-lg">
+            <section ref={featuresRef} className="bg-white flex-col flex items-center justify-center rounded-lg">
                 <Link 
                 to='/dashboard'
                 
@@ -99,7 +101,7 @@ const Homepage = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, minima temporibus voluptate doloremque veniam aspernatur tenetur sint totam, voluptatem dolore nulla asperiores inventore quam, accusamus assumenda fugit error provident aperiam.
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti non nobis libero incidunt minima, cum pariatur animi odio obcaecati ducimus at nisi minus, vel commodi assumenda dolorem est rem possimus!
             </section>
-            <section ref={aboutMeRef} id='about-me'className="bg-white flex-col flex items-center justify-center rounded-lg">
+            <section ref={aboutMeRef} className="bg-white flex-col flex items-center justify-center rounded-lg">
                 <Link to='#'>MEET THE TEAM</Link>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore laborum enim, fuga, harum sed non unde vero suscipit aperiam, impedit a dolorem quis quasi eaque molestias dolores fugiat repellat ipsum?
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos nobis molestias quisquam officia ipsa. Eligendi facilis nobis tenetur eius corrupti debitis, voluptatibus sit impedit id exercitationem ipsam rerum veritatis reiciendis!
