@@ -5,7 +5,6 @@ import { Link, useLocation } from "react-router-dom"
 const Navbar = ({ promAddress, user, scrollToSection, signout }) => {
     const location = useLocation()
 
-
     return (
         <nav className="bg-white p-4 flex space-x-4 rounded-lg my-2 justify-between">
             <Link to='/' preventScrollReset={true}>Home</Link>

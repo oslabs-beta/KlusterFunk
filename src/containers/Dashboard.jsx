@@ -32,6 +32,7 @@ const Dashboard = () => {
         {promAddress && (
         <>
           <h1>Active Broker Count: {metricStore.brokerCount[1]}</h1>
+          <button type='button' onClick={resetMetricStore} >reset</button>
         {graphArray}
         </>
         )}

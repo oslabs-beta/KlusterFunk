@@ -6,17 +6,22 @@ const useAuthenticate = (setUser) => {
     const location = useLocation();
 
     const verifyToken = async () => {
-        const res = await fetch('/user/auth');
-        if (res.status === 401 && location.pathname === '/dashboard') {
-          return navigate('/login');
-        } else if (res.status === 401 && location.pathname === '/') {
-          return;
-        }
-        if (!res.ok) {
-          throw Error('failed to authenticate user');
-        }
+        const verifyEndpoint = '/user/auth';
+        try {
+            const res = await fetch(verifyEndpoint);
+            if (res.status === 401 && location.pathname === '/dashboard') {
+            return navigate('/login');
+            } else if (res.status === 401 && location.pathname === '/') {
+            return;
+            }
+            if (!res.ok) {
+            throw Error('failed to authenticate user');
+            }
         const { username } = await res.json();
         setUser(username)
+        } catch (error) {
+            console.error(error.message);
+        }
     }
 
     useLayoutEffect(() => { verifyToken() }, []);
@@ -26,13 +31,16 @@ const useAuthenticate = (setUser) => {
             const res = await fetch('/user/signout')
             if (res.status === 202) {
                 verifyToken();
-                setUser('')
+                setUser('');
+                return;
             }
+            if (!res.ok) throw Error('failed to signout');
         } catch (error) {
-            console.error(error.message)
+            console.error(error.message);
         }
     }
-    return [ signout ]
+    
+    return [ signout ];
 }
 
 export default useAuthenticate;
