@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useState, useRef } from "react"
 
+
 import useAuthenticate from "../Hooks/useAuthenticate.jsx"
 import Navbar from "../component/Navbar.jsx"
 
@@ -10,23 +11,28 @@ const Homepage = () => {
     const featuresRef = useRef(null);
     const aboutMeRef = useRef(null);
 
-    const scrollToSection = (sectionId) => {
-      if (sectionId === 'features') {
-        scrollToRef(featuresRef)
-      } else if (sectionId === 'about-me') {
-        scrollToRef(aboutMeRef)
-      }
+    const refs = {
+      featuresRef: featuresRef,
+      aboutMeRef: aboutMeRef
     }
 
-    const scrollToRef = (ref) => {
-      if (ref && ref.current) {
-        ref.current.scrollIntoView({behavior: 'smooth'})
-      }
-    }
+    // const scrollToSection = (sectionId) => {
+    //   if (sectionId === 'features') {
+    //     scrollToRef(featuresRef)
+    //   } else if (sectionId === 'about-me') {
+    //     scrollToRef(aboutMeRef)
+    //   }
+    // }
+
+    // const scrollToRef = (ref) => {
+    //   if (ref && ref.current) {
+    //     ref.current.scrollIntoView({behavior: 'smooth'})
+    //   }
+    // }
 
     return (
         <main className='fixed inset-0 flex flex-col bg-slate-300 border-slate-500 border-2 rounded-lg'>
-        <Navbar user={user} scrollToSection={scrollToSection} signout={signout}/>
+        <Navbar user={user} signout={signout} refs={refs}/>
         <div className='space-y-4 max-h-screen overflow-y-auto'>
             <section ref={featuresRef} id='features' className="bg-white flex-col flex items-center justify-center rounded-lg">
                 <Link 
