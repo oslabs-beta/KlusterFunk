@@ -63,7 +63,7 @@ const useMetricStore = (promAddress) => {
                 const metrics = await res.json();
 
                 setMetricStore((prevStore) => {
-                    const newStore = { ...prevStore };
+                    const newStore = structuredClone(prevStore);
 
                     newStore.bytesIn = newStore.bytesIn.slice(1);
                     newStore.bytesIn.push(metrics.bytesIn);

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import useAuthenticate from '../Hooks/useAuthenticate.jsx';
 import LineGraph from '../component/LineGraph.jsx';
 import PromAddress from '../component/PromAddress.jsx';
-import Navbar from '../component/Navbar.jsx';
+import Nav from '../component/Navbar.jsx';
 import useMetricStore from '../Hooks/useMetricStore.jsx';
 
 const Dashboard = () => {
@@ -27,7 +27,7 @@ const Dashboard = () => {
 
   return (
     <main className='fixed inset-0 flex flex-col bg-slate-300 border-slate-500 border-2 rounded-lg'>
-      <Navbar promAddress={promAddress} user={user} signout={signout}/>
+      <Nav promAddress={promAddress} user={user} signout={signout}/>
       <div className='overflow-y-auto bg-white items-center justify-center rounded-lg'>
         {promAddress && (
         <>
