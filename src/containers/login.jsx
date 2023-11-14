@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
+import { TextInput, } from "flowbite-react"
 
 const Login = () => {
     const [auth, setAuth] = useState('login')
@@ -40,7 +41,7 @@ const Login = () => {
     }
 
     return (
-        <main className='p-8 bg-slate-300 border-slate-500 border-2 rounded-lg'>
+        <main className='p-14 bg-slate-300 border-slate-500 border-2 rounded-lg'>
         <form className='space-y-3' onSubmit={handleSubmit} 
         onChange={(e) => {
             switch (e.target.name) {
@@ -52,7 +53,7 @@ const Login = () => {
                     setConfirmPassword(e.target.value);
             }
         }}>
-            <input 
+            <TextInput 
             className='bg-slate-100 rounded'
             type='username'
             name='username'
@@ -60,7 +61,7 @@ const Login = () => {
             autoComplete='off'
             />
             <br />
-            <input
+            <TextInput
             className='bg-slate-100 rounded'
             type='password'
             name='password'
@@ -69,7 +70,7 @@ const Login = () => {
             <br />
             {auth === 'signup' && (
             <>
-            <input
+            <TextInput
             className='bg-slate-100 rounded'
             type='password'
             name='confirmPassword'
