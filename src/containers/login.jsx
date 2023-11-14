@@ -42,9 +42,9 @@ const Login = () => {
   };
 
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col space-y-4 items-center'>
       <img className='w-2/4' src='src/assets/klusterfunklogo2.png' />
-      <main className='p-8 bg-slate-300 border-slate-500 border-2 rounded-lg'>
+      <main className='p-8 bg-yellow-500 border-2 border-yellow-500 rounded-lg'>
         <form
           className='space-y-3'
           onSubmit={handleSubmit}

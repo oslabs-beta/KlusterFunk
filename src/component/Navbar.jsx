@@ -49,6 +49,7 @@ const Nav = ({ promAddress, user, signout, refs, reset }) => {
             {/* <Link to='#' onClick={() => {scroll(refs.featuresRef)}}>Features</Link>
                 <Link to='#' onClick={() => {scroll(refs.aboutMeRef)}}>Contact us</Link> */}
             <Navbar.Link
+              className='text-xl text-black'
               href='#'
               onClick={() => {
                 scroll(refs.featuresRef);
@@ -57,6 +58,7 @@ const Nav = ({ promAddress, user, signout, refs, reset }) => {
               About
             </Navbar.Link>
             <Navbar.Link
+              className='text-xl text-black'
               href='#'
               onClick={() => {
                 scroll(refs.aboutMeRef);
