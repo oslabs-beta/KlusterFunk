@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import useAuthenticate from '../Hooks/useAuthenticate.jsx';
 import LineGraph from '../component/LineGraph.jsx';
 import PromAddress from '../component/PromAddress.jsx';
-import Navbar from '../component/Navbar.jsx';
+import Nav from '../component/Navbar.jsx';
 import useMetricStore from '../Hooks/useMetricStore.jsx';
 
 const Dashboard = () => {
@@ -27,19 +27,25 @@ const Dashboard = () => {
 
   return (
     <main className='fixed inset-0 flex flex-col bg-slate-300 border-slate-500 border-2 rounded-lg'>
-      <Navbar promAddress={promAddress} user={user} signout={signout}/>
+      <Nav promAddress={promAddress} user={user} signout={signout} reset={resetMetricStore}/>
       <div className='overflow-y-auto bg-white items-center justify-center rounded-lg'>
         {promAddress && (
-        <>
+          <>
           <h1>Active Broker Count: {metricStore.brokerCount[1]}</h1>
-          <button type='button' onClick={resetMetricStore} >reset</button>
-        {graphArray}
+          <button type='button' onClick={resetMetricStore}>Reset</button>
+          <div id='chart-container' className='flex flex-wrap justify-items-center justify-center w-full'>
+            {graphArray.map((graph, index) => (
+              <div key={index} className='w-full sm:w-4/6 p-2'>
+                {graph}
+              </div>
+            ))}
+          </div>
         </>
-        )}
-        {!promAddress && <PromAddress setPromAddress={setPromAddress} />}
-      </div>
-    </main>
-  );
+      )}
+      {!promAddress && <PromAddress setPromAddress={setPromAddress} />}
+    </div>
+  </main>
+);
 }
 
 export default Dashboard;

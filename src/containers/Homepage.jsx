@@ -3,7 +3,7 @@ import { useState, useRef } from "react"
 
 
 import useAuthenticate from "../Hooks/useAuthenticate.jsx"
-import Navbar from "../component/Navbar.jsx"
+import Nav from "../component/Navbar.jsx"
 
 const Homepage = () => {
     const [user, setUser] = useState('');
@@ -16,31 +16,11 @@ const Homepage = () => {
       aboutMeRef: aboutMeRef
     }
 
-    // const scrollToSection = (sectionId) => {
-    //   if (sectionId === 'features') {
-    //     scrollToRef(featuresRef)
-    //   } else if (sectionId === 'about-me') {
-    //     scrollToRef(aboutMeRef)
-    //   }
-    // }
-
-    // const scrollToRef = (ref) => {
-    //   if (ref && ref.current) {
-    //     ref.current.scrollIntoView({behavior: 'smooth'})
-    //   }
-    // }
-
-    // removed section ids
-
     return (
         <main className='fixed inset-0 flex flex-col bg-slate-300 border-slate-500 border-2 rounded-lg'>
-        <Navbar user={user} signout={signout} refs={refs}/>
+        <Nav user={user} signout={signout} refs={refs}/>
         <div className='space-y-4 max-h-screen overflow-y-auto'>
-            <section ref={featuresRef} className="bg-white flex-col flex items-center justify-center rounded-lg">
-                <Link 
-                to='/dashboard'
-                
-                >DASHBOARD</Link>
+            <section ref={featuresRef} id='features' className="bg-white flex-col flex items-center justify-center rounded-lg">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore laborum enim, fuga, harum sed non unde vero suscipit aperiam, impedit a dolorem quis quasi eaque molestias dolores fugiat repellat ipsum?
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos nobis molestias quisquam officia ipsa. Eligendi facilis nobis tenetur eius corrupti debitis, voluptatibus sit impedit id exercitationem ipsam rerum veritatis reiciendis!
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eveniet ipsum libero commodi quos in molestiae provident iure natus facere, consectetur ipsa non delectus, officia quia eum ad excepturi dicta.
@@ -101,7 +81,7 @@ const Homepage = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, minima temporibus voluptate doloremque veniam aspernatur tenetur sint totam, voluptatem dolore nulla asperiores inventore quam, accusamus assumenda fugit error provident aperiam.
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti non nobis libero incidunt minima, cum pariatur animi odio obcaecati ducimus at nisi minus, vel commodi assumenda dolorem est rem possimus!
             </section>
-            <section ref={aboutMeRef} className="bg-white flex-col flex items-center justify-center rounded-lg">
+            <section ref={aboutMeRef} id='about-me' className="bg-white flex-col flex items-center justify-center rounded-lg">
                 <Link to='#'>MEET THE TEAM</Link>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore laborum enim, fuga, harum sed non unde vero suscipit aperiam, impedit a dolorem quis quasi eaque molestias dolores fugiat repellat ipsum?
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos nobis molestias quisquam officia ipsa. Eligendi facilis nobis tenetur eius corrupti debitis, voluptatibus sit impedit id exercitationem ipsam rerum veritatis reiciendis!
