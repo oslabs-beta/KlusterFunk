@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import Login from '/Users/Donahue/Documents/gits/ClusterFunk/src/containers/login.jsx';
-import { BrowserRouter, MemoryRouter } from 'react-router-dom';
+import Login from '@/containers/login.jsx';
+import { MemoryRouter } from 'react-router-dom';
 import { beforeEach } from 'vitest';
 import { request } from 'supertest';
 
@@ -35,7 +35,5 @@ describe('Login', () => {
     expect(infoMatch).toHaveTextContent('passwords do not match');
   });
 
-  test('Login or Signup buttons send fetch request', () => {
-    
-  });
+  test('Login or Signup buttons send fetch request', () => {});
 });
