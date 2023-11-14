@@ -8,7 +8,7 @@ const Nav = ({ promAddress, user, signout, refs }) => {
   const scroll = useScroll();
 
   return (
-    <Navbar className='sticky top-0 z-50 bg-fuchsia-700 rounded' fluid rounded>
+    <Navbar className='sticky top-0 z-50 bg-fuchsia-600 rounded' fluid rounded>
       <Navbar.Brand href='/'>
         <img src='src\assets\grape.png' className='w-12' />
       </Navbar.Brand>
@@ -45,7 +45,7 @@ const Nav = ({ promAddress, user, signout, refs }) => {
                 <Link to='#' onClick={() => {scroll(refs.aboutMeRef)}}>Contact us</Link> */}
             <Navbar.Link
               href='#'
-              className='text-lg text-black'
+              className='text-xl text-black'
               onClick={() => {
                 scroll(refs.featuresRef);
               }}
@@ -54,7 +54,7 @@ const Nav = ({ promAddress, user, signout, refs }) => {
             </Navbar.Link>
             <Navbar.Link
               href='#'
-              className='text-lg text-black'
+              className='text-xl text-black'
               onClick={() => {
                 scroll(refs.aboutMeRef);
               }}

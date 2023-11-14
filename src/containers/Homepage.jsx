@@ -16,82 +16,18 @@ const Homepage = () => {
   };
 
   return (
-    <main className='flex flex-col bg-fuchsia-700 border-2 rounded-lg'>
+    <main className='h-screen w-fit flex flex-col bg-fuchsia-600 rounded-lg'>
       <Nav user={user} signout={signout} refs={refs} />
-      <div className='space-y-4 max-h-screen overflow-y-auto'>
+      <div className='space-y-4 p-2 max-h-screen overflow-y-auto'>
         <section
           ref={featuresRef}
           id='features'
           className='bg-fuchsia-200 flex-col flex items-center justify-center rounded-lg'
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
-          laborum enim, fuga, harum sed non unde vero suscipit aperiam, impedit
-          a dolorem quis quasi eaque molestias dolores fugiat repellat ipsum?
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos nobis
-          molestias quisquam officia ipsa. Eligendi facilis nobis tenetur eius
-          corrupti debitis, voluptatibus sit impedit id exercitationem ipsam
-          rerum veritatis reiciendis! Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Autem eveniet ipsum libero commodi quos in molestiae
-          provident iure natus facere, consectetur ipsa non delectus, officia
-          quia eum ad excepturi dicta. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Voluptate voluptas architecto id ut suscipit a,
-          quam, ducimus quisquam aperiam, quod qui odio. Aliquid laborum
-          inventore et quia similique aut harum? Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Totam quod nobis, esse animi enim
-          accusantium ullam unde iste sapiente, dignissimos sed, ex earum!
-          Necessitatibus quam voluptatum quasi porro magnam sint! Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Rerum, minima temporibus
-          voluptate doloremque veniam aspernatur tenetur sint totam, voluptatem
-          dolore nulla asperiores inventore quam, accusamus assumenda fugit
-          error provident aperiam. Lorem, ipsum dolor sit amet consectetur
-          adipisicing elit. Deleniti non nobis libero incidunt minima, cum
-          pariatur animi odio obcaecati ducimus at nisi minus, vel commodi
-          assumenda dolorem est rem possimus! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Dolore laborum enim, fuga, harum sed non
-          unde vero suscipit aperiam, impedit a dolorem quis quasi eaque
-          molestias dolores fugiat repellat ipsum? Lorem ipsum, dolor sit amet
-          consectetur adipisicing elit. Eos nobis molestias quisquam officia
-          ipsa. Eligendi facilis nobis tenetur eius corrupti debitis,
-          voluptatibus sit impedit id exercitationem ipsam rerum veritatis
-          reiciendis! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Autem eveniet ipsum libero commodi quos in molestiae provident iure
-          natus facere, consectetur ipsa non delectus, officia quia eum ad
-          excepturi dicta. Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Voluptate voluptas architecto id ut suscipit a, quam, ducimus
-          quisquam aperiam, quod qui odio. Aliquid laborum inventore et quia
-          similique aut harum? Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Totam quod nobis, esse animi enim accusantium ullam
-          unde iste sapiente, dignissimos sed, ex earum! Necessitatibus quam
-          voluptatum quasi porro magnam sint! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Rerum, minima temporibus voluptate
-          doloremque veniam aspernatur tenetur sint totam, voluptatem dolore
-          nulla asperiores inventore quam, accusamus assumenda fugit error
-          provident aperiam. Lorem, ipsum dolor sit amet consectetur adipisicing
-          elit. Deleniti non nobis libero incidunt minima, cum pariatur animi
-          odio obcaecati ducimus at nisi minus, vel commodi assumenda dolorem
-          est rem possimus! Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Dolore laborum enim, fuga, harum sed non unde vero suscipit
-          aperiam, impedit a dolorem quis quasi eaque molestias dolores fugiat
-          repellat ipsum? Lorem ipsum, dolor sit amet consectetur adipisicing
-          elit. Eos nobis molestias quisquam officia ipsa. Eligendi facilis
-          nobis tenetur eius corrupti debitis, voluptatibus sit impedit id
-          exercitationem ipsam rerum veritatis reiciendis! Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Autem eveniet ipsum libero commodi
-          quos in molestiae provident iure natus facere, consectetur ipsa non
-          delectus, officia quia eum ad excepturi dicta. Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Voluptate voluptas architecto id ut
-          suscipit a, quam, ducimus quisquam aperiam, quod qui odio. Aliquid
-          laborum inventore et quia similique aut harum? Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Totam quod nobis, esse animi enim
-          accusantium ullam unde iste sapiente, dignissimos sed, ex earum!
-          Necessitatibus quam voluptatum quasi porro magnam sint! Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Rerum, minima temporibus
-          voluptate doloremque veniam aspernatur tenetur sint totam, voluptatem
-          dolore nulla asperiores inventore quam, accusamus assumenda fugit
-          error provident aperiam. Lorem, ipsum dolor sit amet consectetur
-          adipisicing elit. Deleniti non nobis libero incidunt minima, cum
-          pariatur animi odio obcaecati ducimus at nisi minus, vel commodi
-          assumenda dolorem est rem possimus!
+          <img className='w-2/4' src='src/assets/klusterfunklogo2.png' />
+          <p className='text-lg'>
+            Klusterfunk is a web-based GUI for monitoring Kafka metrics
+          </p>
         </section>
         <section
           ref={aboutMeRef}
@@ -149,7 +85,7 @@ const Homepage = () => {
               </div>
               <div className='flex flex-col justify-center mx-8 px-8'>
                 <p className='text-lg'>Connor Donahue</p>
-                <img src='src/assets/davidpic.png'></img>{' '}
+                <img src='src/assets/connorpic.png'></img>{' '}
                 <div className='flex justify-center'>
                   <a className='mr-2' href='https://github.com/conniedonahue'>
                     <img
@@ -160,7 +96,7 @@ const Homepage = () => {
                   </a>
                   <a
                     className='mt-1 ml-2'
-                    href='https://www.linkedin.com/in/connordonahueaudio/'
+                    href='https://www.linkedin.com/in/connordonahue09/'
                   >
                     <img
                       className='w-10'
