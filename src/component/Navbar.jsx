@@ -1,11 +1,13 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Avatar, Dropdown, Navbar, Button } from 'flowbite-react';
 import useScroll from '../Hooks/useScroll.jsx';
+import useDarkMode from '../Hooks/useDarkMode.jsx';
 
-const Nav = ({ promAddress, user, signout, refs }) => {
+const Nav = ({ promAddress, user, signout, refs, reset }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const scroll = useScroll();
+  const [darkMode, toggleDarkMode] = useDarkMode();
 
   return (
     <Navbar className='sticky top-0 z-50 bg-fuchsia-600 rounded' fluid rounded>
@@ -32,6 +34,9 @@ const Nav = ({ promAddress, user, signout, refs }) => {
             <Dropdown.Item onClick={() => navigate('/dashboard')}>
               Dashboard
             </Dropdown.Item>
+            <Dropdown.Item onClick={() => toggleDarkMode()}>
+              {darkMode ? 'Light Mode' : 'Dark Mode'}
+            </Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item onClick={() => signout()}>Sign out</Dropdown.Item>
           </Dropdown>
@@ -45,7 +50,6 @@ const Nav = ({ promAddress, user, signout, refs }) => {
                 <Link to='#' onClick={() => {scroll(refs.aboutMeRef)}}>Contact us</Link> */}
             <Navbar.Link
               href='#'
-              className='text-xl text-black'
               onClick={() => {
                 scroll(refs.featuresRef);
               }}
@@ -54,7 +58,6 @@ const Nav = ({ promAddress, user, signout, refs }) => {
             </Navbar.Link>
             <Navbar.Link
               href='#'
-              className='text-xl text-black'
               onClick={() => {
                 scroll(refs.aboutMeRef);
               }}
@@ -71,6 +74,9 @@ const Nav = ({ promAddress, user, signout, refs }) => {
           >
             Login
           </Button>
+        )}
+        {location.pathname === '/dashboard' && (
+          <div>Prometheus: {promAddress}</div>
         )}
       </Navbar.Collapse>
     </Navbar>

@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { TextInput } from 'flowbite-react';
 
 const Login = () => {
   const [auth, setAuth] = useState('login');
@@ -58,7 +59,7 @@ const Login = () => {
             }
           }}
         >
-          <input
+          <TextInput
             className='bg-slate-100 rounded'
             type='username'
             name='username'
@@ -66,7 +67,7 @@ const Login = () => {
             autoComplete='off'
           />
           <br />
-          <input
+          <TextInput
             className='bg-slate-100 rounded'
             type='password'
             name='password'
@@ -75,7 +76,7 @@ const Login = () => {
           <br />
           {auth === 'signup' && (
             <>
-              <input
+              <TextInput
                 className='bg-slate-100 rounded'
                 type='password'
                 name='confirmPassword'

@@ -71,7 +71,7 @@ const LineGraph = ({
     ],
   };
 
-  return <Line className='h-12 w-16' options={options} data={data} />;
+  return <Line className='h-12 w-16 ' options={options} data={data} />;
 }
 
 export default LineGraph;
