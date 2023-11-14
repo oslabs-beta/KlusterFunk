@@ -16,7 +16,7 @@ const Homepage = () => {
   };
 
   return (
-    <main className='flex flex-col space-y-4 bg-fuchsia-700 border- border-2 rounded-lg'>
+    <main className='flex flex-col bg-fuchsia-700 border-2 rounded-lg'>
       <Nav user={user} signout={signout} refs={refs} />
       <div className='space-y-4 max-h-screen overflow-y-auto'>
         <section
@@ -102,8 +102,8 @@ const Homepage = () => {
             MEET THE TEAM
           </div>
           <div className='w-full py-2 px-4'>
-            <section className='flex justify-between'>
-              <div className='flex flex-col justify-center'>
+            <section className='flex justify-center'>
+              <div className='flex flex-col justify-center mx-8 px-8'>
                 <p className='text-lg'>David Tezza</p>
                 <img src='src/assets/davidpic.png'></img>{' '}
                 <div className='flex justify-center'>
@@ -125,7 +125,7 @@ const Homepage = () => {
                   </a>
                 </div>
               </div>
-              <div className='flex flex-col justify-center'>
+              <div className='flex flex-col justify-center mx-8 px-8'>
                 <p className='text-lg'>Wilson Wu</p>
                 <img src='src/assets/davidpic.png'></img>{' '}
                 <div className='flex justify-center'>
@@ -147,7 +147,7 @@ const Homepage = () => {
                   </a>
                 </div>
               </div>
-              <div className='flex flex-col justify-center'>
+              <div className='flex flex-col justify-center mx-8 px-8'>
                 <p className='text-lg'>Connor Donahue</p>
                 <img src='src/assets/davidpic.png'></img>{' '}
                 <div className='flex justify-center'>
@@ -169,9 +169,9 @@ const Homepage = () => {
                   </a>
                 </div>
               </div>
-              <div className='flex flex-col justify-center'>
+              <div className='flex flex-col justify-center mx-8 px-8'>
                 <p className='text-lg'>Dominic Kenny</p>
-                <img src='src/assets/davidpic.png'></img>{' '}
+                <img src='src/assets/dominicpic.png'></img>{' '}
                 <div className='flex justify-center'>
                   <a className='mr-2' href='https://github.com/dominicjkenny'>
                     <img

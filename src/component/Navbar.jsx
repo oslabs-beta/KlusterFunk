@@ -8,9 +8,9 @@ const Nav = ({ promAddress, user, signout, refs }) => {
   const scroll = useScroll();
 
   return (
-    <Navbar className='sticky top-0 z-50 bg-fuchsia-700' fluid rounded>
+    <Navbar className='sticky top-0 z-50 bg-fuchsia-700 rounded' fluid rounded>
       <Navbar.Brand href='/'>
-        <img src='src\assets\grape.png' className='mr-3 h-6 sm:h-9' />
+        <img src='src\assets\grape.png' className='w-12' />
       </Navbar.Brand>
       {location.pathname === '/dashboard' && (
         <div>Prometheus: {promAddress}</div>
@@ -24,13 +24,7 @@ const Nav = ({ promAddress, user, signout, refs }) => {
           <Dropdown
             arrowIcon={false}
             inline
-            label={
-              <Avatar
-                alt='User settings'
-                img='https://flowbite.com/docs/images/people/profile-picture-5.jpg'
-                rounded
-              />
-            }
+            label={<Avatar alt='User settings' rounded />}
           >
             <Dropdown.Header>
               <span className='block text-sm'>Hello, {user}!</span>
@@ -51,6 +45,7 @@ const Nav = ({ promAddress, user, signout, refs }) => {
                 <Link to='#' onClick={() => {scroll(refs.aboutMeRef)}}>Contact us</Link> */}
             <Navbar.Link
               href='#'
+              className='text-lg text-black'
               onClick={() => {
                 scroll(refs.featuresRef);
               }}
@@ -59,6 +54,7 @@ const Nav = ({ promAddress, user, signout, refs }) => {
             </Navbar.Link>
             <Navbar.Link
               href='#'
+              className='text-lg text-black'
               onClick={() => {
                 scroll(refs.aboutMeRef);
               }}
