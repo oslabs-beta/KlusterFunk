@@ -13,8 +13,19 @@ If you have not yet set up these tools for your clusters, follow the steps in **
 
 ## Features
 
-- Login auth using JWT tokens
-- We'll query Prometheus and graph the most important metrics out all in one place for you using the Prometheus API
+| Feature                                                                              | Status    |
+|--------------------------------------------------------------------------------------|-----------|
+| Login authorization using JWT tokens                                                 | ✅        |
+| Prometheus API                                                                       | ✅        |
+| Build in functionality to have users simply input kafka cluster URIs and link up metrics on the backend                                                                                | ⏳        |
+| Allow users to choose from list of metrics they would like to see or even input metrics they want to see                                                                                    | ⏳        |
+| Switch between Kafka clusters                                                        | ⏳        |
+| More styling using Tailwind                                                          | 🙏🏻        |
+| Save in database location of kafka clusters and prometheus address                   | 🙏🏻        |
+
+- ✅ = Ready to use
+- ⏳ = In progress
+- 🙏🏻 = Looking for contributors
 
 ## Setup
 
@@ -47,9 +58,13 @@ If you have not yet set up these tools for your clusters, follow the steps in **
 
 ## Contributing
 
-Feel free to GitHub issues to let us know what features you want and what you'd like to see next from the project. \
+Feel free to GitHub issues to let us know what features you want and what you'd like to see next from the project! \
 \
-If you would like to work on the open source code, please do feel free to submit a pull request. Make sure you're following Javascript ES6 syntax and modularize your code as much as possible. 
+If you would like to work on the open source code, please do feel free to submit a pull request! Make sure you're following Javascript ES6 syntax and modularize your code as much as possible. 
+
+```shell
+npm install
+```
 
 ## Stack
 
