@@ -10,18 +10,11 @@ const Nav = ({ promAddress, user, signout, refs, reset }) => {
   const [darkMode, toggleDarkMode] = useDarkMode();
 
   return (
-    <Navbar className='sticky top-0 z-50 bg-fuchsia-600 rounded' fluid rounded>
+    <Navbar className='sticky top-0 z-50 bg-fuchsia-600 dark:bg-fuchsia-900 rounded' fluid rounded>
       <Navbar.Brand href='/'>
         <img src='src\assets\grape.png' className='w-12' />
       </Navbar.Brand>
-      {location.pathname === '/dashboard' && (
-        <div>Prometheus: {promAddress}</div>
-      )}
       {user && (
-        // <>
-        // <div>Hello, {user}!</div>
-        // <button type='button' onClick={() => { signout() }}>Signout</button>
-        // </>
         <div className='flex md:order-2'>
           <Dropdown
             arrowIcon={false}
@@ -46,8 +39,6 @@ const Nav = ({ promAddress, user, signout, refs, reset }) => {
       <Navbar.Collapse>
         {location.pathname === '/' && (
           <>
-            {/* <Link to='#' onClick={() => {scroll(refs.featuresRef)}}>Features</Link>
-                <Link to='#' onClick={() => {scroll(refs.aboutMeRef)}}>Contact us</Link> */}
             <Navbar.Link
               className='text-xl text-black'
               href='#'
@@ -71,14 +62,14 @@ const Nav = ({ promAddress, user, signout, refs, reset }) => {
         {!user && (
           <Button
             pill
-            className='bg-fuchsia-950 hover:bg-fuchsia-800'
+            className='bg-fuchsia-950 hover:bg-fuchsia-800 hover:bg-fuchsia-400'
             onClick={() => navigate('/login')}
           >
             Login
           </Button>
         )}
         {location.pathname === '/dashboard' && (
-          <div>Prometheus: {promAddress}</div>
+          <div className='text-xl text-black font-bold'>Prometheus: {promAddress}</div>
         )}
       </Navbar.Collapse>
     </Navbar>

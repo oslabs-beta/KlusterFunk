@@ -46,11 +46,13 @@ const LineGraph = ({
     dataArr.push(metricStore[i][1]);
   }
   // console.log(dataArr);
+  ChartJS.defaults.backgroundColor = '#9BD0F5';
+  ChartJS.defaults.borderColor = '#36A2EB';
+  ChartJS.defaults.color = '#000';
 
   const options = {
     responsive: true,
     plugins: {
-      colors: { forceOverride: true },
       legend: { position: 'top' },
       title: {
         display: true,
@@ -65,13 +67,13 @@ const LineGraph = ({
       {
         label: dataLabel,
         data: dataArr,
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        borderColor: '#520049',
+        backgroundColor: '#520049',
       },
     ],
   };
 
-  return <Line className='h-12 w-16 ' options={options} data={data} />;
+  return <Line className='h-12 w-16 font-bold text-yellow-500' options={options} data={data} />;
 }
 
 export default LineGraph;
