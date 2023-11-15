@@ -46,9 +46,9 @@ const LineGraph = ({
     dataArr.push(metricStore[i][1]);
   }
   // console.log(dataArr);
-  ChartJS.defaults.backgroundColor = '#9BD0F5';
-  ChartJS.defaults.borderColor = '#36A2EB';
-  ChartJS.defaults.color = '#000';
+  // ChartJS.defaults.backgroundColor = '#9BD0F5';
+  // ChartJS.defaults.borderColor = '#36A2EB';
+  // ChartJS.defaults.color = '#000';
 
   const options = {
     responsive: true,
