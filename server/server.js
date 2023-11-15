@@ -6,7 +6,6 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import { userRouter } from './routes/userRouter.js';
 import { metricsRouter } from './routes/metricsRouter.js';
-import 'vite/modulepreload-polyfill';
 
 const app = express();
 const PORT = process.env.PORT || 3030;
