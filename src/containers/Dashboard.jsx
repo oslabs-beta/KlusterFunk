@@ -28,10 +28,10 @@ const Dashboard = () => {
   return (
     <main className='fixed inset-0 flex flex-col bg-slate-300 border-slate-500 border-2 rounded-lg'>
       <Nav promAddress={promAddress} user={user} signout={signout} reset={resetMetricStore}/>
-      <div className='overflow-y-auto bg-white items-center justify-center rounded-lg'>
+      <div className='overflow-y-auto bg-white text-yellow-500 items-center justify-center rounded-lg'>
         {promAddress && (
           <>
-          <h1>Active Broker Count: {metricStore.brokerCount[1]}</h1>
+          <h1 className=''>Active Broker Count: {metricStore.brokerCount[1]}</h1>
           <button type='button' onClick={resetMetricStore}>Reset</button>
           <div id='chart-container' className='flex flex-wrap justify-items-center justify-center w-full'>
             {graphArray.map((graph, index) => (
