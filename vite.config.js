@@ -22,10 +22,9 @@ export default defineConfig({
     },
   },
   build: {
+    manifest: true,
     rollupOptions: {
-      output: {
-        assetFileNames: 'assets/[name]-[hash][extname]',
-      },
+      input: './server/server.js',
     },
   },
 });
