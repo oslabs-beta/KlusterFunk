@@ -25,6 +25,7 @@ If you have not yet set up these tools for your clusters, follow the steps in **
 | Build in functionality to have users simply input kafka cluster URIs and link up metrics on the backend  | ⏳     |
 | Allow users to choose from list of metrics they would like to see or even input metrics they want to see | ⏳     |
 | Switch between Kafka clusters                                                                            | ⏳     |
+| Dark Mode                                                                                                | ⏳     |
 | More styling using Tailwind                                                                              | 🙏🏻     |
 | Save in database location of kafka clusters and prometheus address                                       | 🙏🏻     |
 
@@ -64,25 +65,28 @@ export EXTRA_ARGS="-Dcom.sun.management.jmxremote \
 
 ```shell
 /usr/local/opt/kafka/bin/kafka-server-start /usr/local/etc/kafka/server.properties
-``` 
+```
+
 Localhost:8081 should now be displaying JMX metrics
 
 - Run Prometheus and point it to scrape at port 8081 (or whatever port you configured the JMX exporter )
 
 ## Contributing
 
-Feel free to GitHub issues to let us know what features you want and what you'd like to see next from the project! 
+Feel free to GitHub issues to let us know what features you want and what you'd like to see next from the project!
 
 If you would like to work on the open source code, please do feel free to submit a pull request! Make sure you're following Javascript ES6 syntax and modularize your code as much as possible.
 
-To get started, first *fork* the repo to your personal github repos, then run the following commands:
+To get started, first _fork_ the repo to your personal github repos, then run the following commands:
 
 ```shell
 git clone https://github.com/oslabs-beta/KlusterFunk.git
 ```
+
 ```shell
 npm install
 ```
+
 ```shell
 npm run dev
 ```
