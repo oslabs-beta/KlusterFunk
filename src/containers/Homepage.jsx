@@ -1,14 +1,19 @@
 import { useState, useRef } from 'react';
+import useAuthenticate from '../Hooks/useAuthenticate.jsx';
+import Nav from '../component/Navbar.jsx';
+import TeamInfo from '../component/TeamInfo.jsx';
+import ReadMe from '../component/ReadMe.jsx';
+import Links from '../component/Links.jsx';
 import davidPic from '@/assets/davidpic.png';
 import connorPic from '@/assets/connorpic.png';
-// import wilsonPic from '@/assets/wilsonpic.png';
+import wilsonPic from '@/assets/wilsonpic.png';
 import dominicPic from '@/assets/dominicpic.png';
 import githubIcon from '@/assets/github-mark/github-mark.png';
 import linkedinIcon from '@/assets/LinkedIn-Logos/LI-In-Bug.png';
+import linkedinLogo from '@/assets/LinkedIn-Logos/LI-Logo.png';
+import githubLogo from '@/assets/github-mark/GitHub_Logo.png';
+import mediumLogo from '@/assets/medium-logo.png';
 import logo from '@/assets/klusterfunklogo2.png';
-
-import useAuthenticate from '../Hooks/useAuthenticate.jsx';
-import Nav from '../component/Navbar.jsx';
 
 const Homepage = () => {
   const [ user, setUser ] = useState('');
@@ -22,6 +27,53 @@ const Homepage = () => {
     aboutMeRef: aboutMeRef,
   };
 
+  const memberPics = {
+    'David Tezza': davidPic,
+    'Wilson Wu': wilsonPic,
+    'Connor Donahue': connorPic,
+    'Dominic Kenny': dominicPic,
+  };
+  const teamInfo = [];
+  for (const member in memberPics) {
+    teamInfo.push(
+      <TeamInfo
+        member={member}
+        pic={memberPics[member]}
+        githubIcon={githubIcon}
+        linkedinIcon={linkedinIcon}
+        key={member}
+      />
+    );
+  }
+  const linkInfo = {
+    github: [
+      'For instructions on how to get started with KlusterFunk, visit our Github repo!',
+      'https://github.com/oslabs-beta/KlusterFunk',
+      githubLogo,
+    ],
+    medium: [
+      'To read more about our Product, head over to our Medium article!',
+      'https://medium.com/@connordonahue09/klusterfunk-564ec1c78e36',
+      mediumLogo,
+    ],
+    linkedin: [
+      'Connect with us on LinkedIn!',
+      'https://www.linkedin.com',
+      linkedinLogo,
+    ],
+  };
+  const links = [];
+  for (const link in linkInfo) {
+    links.push(
+      <Links
+        logo={linkInfo[link][2]}
+        text={linkInfo[link][0]}
+        link={linkInfo[link][1]}
+        key={link}
+      />
+    );
+  }
+
   return (
     <main className='h-screen w-fit flex flex-col bg-fuchsia-600 rounded-lg'>
       <Nav user={user} signout={signout} refs={refs} />
@@ -31,82 +83,30 @@ const Homepage = () => {
           id='features'
           className='bg-fuchsia-200 flex-col flex items-center justify-center rounded-lg'
         >
-          <img className='w-2/4' src={logo} />
-          <p className='text-lg'>
-            Klusterfunk is a web-based GUI for monitoring Kafka metrics
-          </p>
+          <img className='w-2/4 pt-2' src={logo} />
+          <ReadMe />
         </section>
         <section
           ref={aboutMeRef}
           id='about-me'
           className='bg-fuchsia-200 flex-col flex items-center justify-center rounded-lg'
         >
-          <div className='text-4xl text-slate-800' to='#'>
-            MEET THE TEAM
+          <section
+            className='flex flex-col items-center text-4xl py-2 px-2 text-black'
+            id='links'
+          >
+            <span className='font-bold'>LINKS</span>
+            <div className='space-y-2 text-xl' id='link info'>
+              {links}
+            </div>
+          </section>
+        </section>
+        <section className='bg-fuchsia-200 flex-col flex items-center justify-center rounded-lg'>
+          <div className='text-4xl text-black' to='#'>
+            <span className='font-bold'>MEET THE TEAM</span>
           </div>
           <div className='w-full py-2 px-4'>
-            <section className='flex justify-center'>
-              <div className='flex flex-col justify-center mx-8 px-8'>
-                <p className='text-lg'>David Tezza</p>
-                <img src={davidPic}></img>{' '}
-                <div className='flex justify-center'>
-                  <a className='mr-2' href='https://github.com/dtezz'>
-                    <img className='w-10' src={githubIcon} />
-                  </a>
-                  <a
-                    className='mt-1 ml-2'
-                    href='https://www.linkedin.com/in/david-tezza/'
-                  >
-                    <img className='w-10' src={linkedinIcon} />
-                  </a>
-                </div>
-              </div>
-              <div className='flex flex-col justify-center mx-8 px-8'>
-                <p className='text-lg'>Wilson Wu</p>
-                <img src={davidPic}></img>{' '}
-                <div className='flex justify-center'>
-                  <a className='mr-2' href='https://github.com/jwu8475'>
-                    <img className='w-10' src={githubIcon} href />
-                  </a>
-                  <a
-                    className='mt-1 ml-2'
-                    href='https://www.linkedin.com/in/wilson-wu-4a821719a/'
-                  >
-                    <img className='w-10' src={linkedinIcon} />
-                  </a>
-                </div>
-              </div>
-              <div className='flex flex-col justify-center mx-8 px-8'>
-                <p className='text-lg'>Connor Donahue</p>
-                <img src={connorPic}></img>{' '}
-                <div className='flex justify-center'>
-                  <a className='mr-2' href='https://github.com/conniedonahue'>
-                    <img className='w-10' src={githubIcon} href />
-                  </a>
-                  <a
-                    className='mt-1 ml-2'
-                    href='https://www.linkedin.com/in/connordonahue09/'
-                  >
-                    <img className='w-10' src={linkedinIcon} />
-                  </a>
-                </div>
-              </div>
-              <div className='flex flex-col justify-center mx-8 px-8'>
-                <p className='text-lg'>Dominic Kenny</p>
-                <img src={dominicPic}></img>{' '}
-                <div className='flex justify-center'>
-                  <a className='mr-2' href='https://github.com/dominicjkenny'>
-                    <img className='w-10' src={githubIcon} href />
-                  </a>
-                  <a
-                    className='mt-1 ml-2'
-                    href='https://www.linkedin.com/in/dominicjkenny/'
-                  >
-                    <img className='w-10' src={linkedinIcon} />
-                  </a>
-                </div>
-              </div>
-            </section>
+            <section className='flex justify-center'>{teamInfo}</section>
           </div>
         </section>
       </div>
