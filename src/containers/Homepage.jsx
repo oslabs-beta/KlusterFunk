@@ -36,7 +36,7 @@ const Homepage = () => {
     'Wilson Wu': [
       wilsonPic,
       'https://github.com/jwu8475',
-      'https://www.linkedin.com/in/wilson-wu-4a821719a/',
+      'www.linkedin.com/in/wilsonwuu8',
     ],
     'Connor Donahue': [
       connorPic,
