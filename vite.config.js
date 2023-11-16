@@ -7,8 +7,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      // '/metrics': 'http://localhost:3030',
-      // '/user': 'http://localhost:3030',
       '/user': {
         target: 'http://localhost:3030',
         changeOrigin: true,
@@ -32,10 +30,4 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  // build: {
-  //   manifest: true,
-  //   rollupOptions: {
-  //     input: './server/server.js',
-  //   },
-  // },
 });

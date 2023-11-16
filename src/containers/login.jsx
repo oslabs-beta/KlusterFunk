@@ -4,11 +4,11 @@ import { TextInput } from 'flowbite-react';
 import logo from '@/assets/klusterfunklogo2.png';
 
 const Login = () => {
-  const [auth, setAuth] = useState('login');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [infoMatch, setInfoMatch] = useState('');
+  const [ auth, setAuth ] = useState('login');
+  const [ username, setUsername ] = useState('');
+  const [ password, setPassword ] = useState('');
+  const [ confirmPassword, setConfirmPassword ] = useState('');
+  const [ infoMatch, setInfoMatch]  = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {

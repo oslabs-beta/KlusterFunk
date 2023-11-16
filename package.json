@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "NODE_ENV=production node server/server.js",
+    "start": "set NODE_ENV=production&& node server/server.js",
     "dev": "concurrently \"vite\" \"nodemon server/server.js\" --open",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
