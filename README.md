@@ -11,6 +11,8 @@ This is a tool meant for developers that are familiar with Kafka and how to expo
 
 If you have not yet set up these tools for your clusters, follow the steps in **[Setup](#setup)**
 
+<img src='./src/assets/demo.gif'/>
+
 ## Features
 
 | Feature                                                                                                  | Status |

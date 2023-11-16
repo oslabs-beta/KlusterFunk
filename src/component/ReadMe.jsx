@@ -1,3 +1,5 @@
+import demo from '@/assets/demo.gif';
+
 const ReadMe = () => {
   return (
     <div>
@@ -17,6 +19,7 @@ const ReadMe = () => {
             <li>Easy to use interface and simple display</li>
             <li>Funky, groovy color scheme</li>
           </ul>
+          <img src={demo} />
         </p>
       </section>
     </div>

@@ -16,8 +16,8 @@ import mediumLogo from '@/assets/medium-logo.png';
 import logo from '@/assets/klusterfunklogo2.png';
 
 const Homepage = () => {
-  const [ user, setUser ] = useState('');
-  const [ signout ] = useAuthenticate(setUser);
+  const [user, setUser] = useState('');
+  const [signout] = useAuthenticate(setUser);
   const featuresRef = useRef(null);
   const aboutMeRef = useRef(null);
 
@@ -95,7 +95,9 @@ const Homepage = () => {
             className='flex flex-col items-center text-4xl py-2 px-2 text-black'
             id='links'
           >
-            <span className='font-bold'>LINKS</span>
+            <span className='font-bold underline underline-offset-4 mb-4'>
+              LINKS
+            </span>
             <div className='space-y-2 text-xl' id='link info'>
               {links}
             </div>
