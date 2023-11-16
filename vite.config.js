@@ -7,9 +7,18 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/metrics': 'http://localhost:3030',
-      '/user': 'http://localhost:3030',
+      '/user': {
+        target: 'http://localhost:3030',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/metrics': {
+        target: 'http://localhost:3030',
+        changeOrigin: true,
+        secure: false,
+      },
     },
+    port: 8080,
   },
   test: {
     globals: true,

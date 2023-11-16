@@ -1,13 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { TextInput } from 'flowbite-react';
+import logo from '@/assets/klusterfunklogo2.png';
 
 const Login = () => {
-  const [auth, setAuth] = useState('login');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [infoMatch, setInfoMatch] = useState('');
+  const [ auth, setAuth ] = useState('login');
+  const [ username, setUsername ] = useState('');
+  const [ password, setPassword ] = useState('');
+  const [ confirmPassword, setConfirmPassword ] = useState('');
+  const [ infoMatch, setInfoMatch]  = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -43,7 +44,7 @@ const Login = () => {
 
   return (
     <div className='flex flex-col space-y-4 items-center'>
-      <img className='w-2/4' src='src/assets/klusterfunklogo2.png' />
+      <img className='w-2/4' src={logo} />
       <main className='p-8 bg-yellow-500 border-2 border-yellow-500 rounded-lg'>
         <form
           className='space-y-3'
