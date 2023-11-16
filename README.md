@@ -107,7 +107,7 @@ LinkedIn
 </p>
 <p>Wilson Wu - <a href="https://github.com/jwu8475">
 Github 
-</a> | <a href="https://www.linkedin.com/in/wilson-wu-4a821719a/">
+</a> | <a href="www.linkedin.com/in/wilsonwuu8">
 LinkedIn
 </a>
 </p>

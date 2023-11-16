@@ -10,6 +10,8 @@ const Nav = ({ promAddress, user, signout, refs, reset }) => {
   const scroll = useScroll();
   const [darkMode, toggleDarkMode] = useDarkMode();
 
+  // used flowbite react components because their components looked really nice.
+  // we have a dropdown that only renders when user is logged in so that the nabar doesn't seem as cluttered
   return (
     <Navbar
       className='sticky top-0 z-50 bg-fuchsia-600 dark:bg-fuchsia-900 rounded'

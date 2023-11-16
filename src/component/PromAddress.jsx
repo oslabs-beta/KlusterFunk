@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 const PromAddress = ({ setPromAddress }) => {
     const [cluster, setCluster] = useState('')
 
+    // On mount, checks sessionStorage for a prometheus key value pair. If there is one, immediately setPromAddress state to the value of that
     useEffect(() => {
         if (sessionStorage.getItem('prometheus')) {
             setPromAddress(sessionStorage.getItem('prometheus'))
