@@ -9,7 +9,7 @@ const ReadMe = () => {
         metrics.
       </p>
       <section>
-        <p id='features' className='text-black text-2xl font-bold'>
+        <div id='features' className='text-black text-2xl font-bold'>
           Features:
           <ul className='text-lg text-black list-disc'>
             <li>Sign in/sign up for individual user accounts</li>
@@ -20,7 +20,7 @@ const ReadMe = () => {
             <li>Funky, groovy color scheme</li>
           </ul>
           <img src={demo} />
-        </p>
+        </div>
       </section>
     </div>
   );

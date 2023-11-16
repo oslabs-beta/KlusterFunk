@@ -27,18 +27,36 @@ const Homepage = () => {
     aboutMeRef: aboutMeRef,
   };
 
-  const memberPics = {
-    'David Tezza': davidPic,
-    'Wilson Wu': wilsonPic,
-    'Connor Donahue': connorPic,
-    'Dominic Kenny': dominicPic,
+  const memberInfo = {
+    'David Tezza': [
+      davidPic,
+      'https://github.com/dtezz',
+      'https://www.linkedin.com/in/david-tezza/',
+    ],
+    'Wilson Wu': [
+      wilsonPic,
+      'https://github.com/jwu8475',
+      'https://www.linkedin.com/in/wilson-wu-4a821719a/',
+    ],
+    'Connor Donahue': [
+      connorPic,
+      'https://github.com/conniedonahue',
+      'https://www.linkedin.com/in/connordonahue09/',
+    ],
+    'Dominic Kenny': [
+      dominicPic,
+      'https://github.com/dominicjkenny',
+      'https://www.linkedin.com/in/dominicjkenny/',
+    ],
   };
   const teamInfo = [];
-  for (const member in memberPics) {
+  for (const member in memberInfo) {
     teamInfo.push(
       <TeamInfo
         member={member}
-        pic={memberPics[member]}
+        githubLink={memberInfo[member][1]}
+        linkedinLink={memberInfo[member][2]}
+        pic={memberInfo[member][0]}
         githubIcon={githubIcon}
         linkedinIcon={linkedinIcon}
         key={member}
