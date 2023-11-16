@@ -1,15 +1,18 @@
 import { Link } from 'react-router-dom';
 import { useState, useRef } from 'react';
+import useAuthenticate from '../Hooks/useAuthenticate.jsx';
+import Nav from '../component/Navbar.jsx';
+import TeamInfo from '../component/TeamInfo.jsx';
 import davidPic from '@/assets/davidpic.png';
 import connorPic from '@/assets/connorpic.png';
 // import wilsonPic from '@/assets/wilsonpic.png';
 import dominicPic from '@/assets/dominicpic.png';
 import githubIcon from '@/assets/github-mark/github-mark.png';
 import linkedinIcon from '@/assets/LinkedIn-Logos/LI-In-Bug.png';
+import linkedinLogo from '@/assets/LinkedIn-Logos/LI-Logo.png';
+import githubLogo from '@/assets/github-mark/GitHub_Logo.png';
+import mediumLogo from '@/assets/medium-logo.png';
 import logo from '@/assets/klusterfunklogo2.png';
-
-import useAuthenticate from '../Hooks/useAuthenticate.jsx';
-import Nav from '../component/Navbar.jsx';
 
 const Homepage = () => {
   const [user, setUser] = useState('');
@@ -21,6 +24,24 @@ const Homepage = () => {
     featuresRef: featuresRef,
     aboutMeRef: aboutMeRef,
   };
+
+  const memberPics = {
+    'David Tezza': davidPic,
+    'Wilson Wu': davidPic,
+    'Connor Donahue': connorPic,
+    'Dominic Kenny': dominicPic,
+  };
+  const teamInfo = [];
+  for (const member in memberPics) {
+    teamInfo.push(
+      <TeamInfo
+        member={member}
+        pic={memberPics[member]}
+        githubIcon={githubIcon}
+        linkedinIcon={linkedinIcon}
+      />
+    );
+  }
 
   return (
     <main className='h-screen w-fit flex flex-col bg-fuchsia-600 rounded-lg'>
@@ -41,72 +62,24 @@ const Homepage = () => {
           id='about-me'
           className='bg-fuchsia-200 flex-col flex items-center justify-center rounded-lg'
         >
-          <div className='text-4xl text-slate-800' to='#'>
+          <section className='text-3xl' id='links'>
+            Links
+            <div className='text-xl' id='link info'>
+              <div>
+                For instructions on how to get started with KlusterFunk, visit
+                our Github repo!
+              </div>
+              <div>
+                To read more about our Product, head over to our Medium article!
+              </div>
+              <div>Connect with us on LinkedIn!</div>
+            </div>
+          </section>
+          <div className='text-4xl text-black' to='#'>
             MEET THE TEAM
           </div>
           <div className='w-full py-2 px-4'>
-            <section className='flex justify-center'>
-              <div className='flex flex-col justify-center mx-8 px-8'>
-                <p className='text-lg'>David Tezza</p>
-                <img src={davidPic}></img>{' '}
-                <div className='flex justify-center'>
-                  <a className='mr-2' href='https://github.com/dtezz'>
-                    <img className='w-10' src={githubIcon} />
-                  </a>
-                  <a
-                    className='mt-1 ml-2'
-                    href='https://www.linkedin.com/in/david-tezza/'
-                  >
-                    <img className='w-10' src={linkedinIcon} />
-                  </a>
-                </div>
-              </div>
-              <div className='flex flex-col justify-center mx-8 px-8'>
-                <p className='text-lg'>Wilson Wu</p>
-                <img src={davidPic}></img>{' '}
-                <div className='flex justify-center'>
-                  <a className='mr-2' href='https://github.com/jwu8475'>
-                    <img className='w-10' src={githubIcon} href />
-                  </a>
-                  <a
-                    className='mt-1 ml-2'
-                    href='https://www.linkedin.com/in/wilson-wu-4a821719a/'
-                  >
-                    <img className='w-10' src={linkedinIcon} />
-                  </a>
-                </div>
-              </div>
-              <div className='flex flex-col justify-center mx-8 px-8'>
-                <p className='text-lg'>Connor Donahue</p>
-                <img src={connorPic}></img>{' '}
-                <div className='flex justify-center'>
-                  <a className='mr-2' href='https://github.com/conniedonahue'>
-                    <img className='w-10' src={githubIcon} href />
-                  </a>
-                  <a
-                    className='mt-1 ml-2'
-                    href='https://www.linkedin.com/in/connordonahue09/'
-                  >
-                    <img className='w-10' src={linkedinIcon} />
-                  </a>
-                </div>
-              </div>
-              <div className='flex flex-col justify-center mx-8 px-8'>
-                <p className='text-lg'>Dominic Kenny</p>
-                <img src={dominicPic}></img>{' '}
-                <div className='flex justify-center'>
-                  <a className='mr-2' href='https://github.com/dominicjkenny'>
-                    <img className='w-10' src={githubIcon} href />
-                  </a>
-                  <a
-                    className='mt-1 ml-2'
-                    href='https://www.linkedin.com/in/dominicjkenny/'
-                  >
-                    <img className='w-10' src={linkedinIcon} />
-                  </a>
-                </div>
-              </div>
-            </section>
+            <section className='flex justify-center'>{teamInfo}</section>
           </div>
         </section>
       </div>
