@@ -6,14 +6,19 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import { userRouter } from './routes/userRouter.js';
 import { metricsRouter } from './routes/metricsRouter.js';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 
 const app = express();
 const PORT = process.env.PORT || 3030;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(join(__dirname, '../dist')));
 
 // Connect to database
 mongoose
@@ -28,6 +33,13 @@ mongoose
 // Set up routers
 app.use('/user', userRouter);
 app.use('/metrics', metricsRouter);
+
+// if (process.env.NODE_ENV === 'production') {
+// }
+
+app.use('/', (req, res, next) => {
+  return res.sendFile(join(__dirname, '../dist/index.html'));
+});
 
 // Unknown route handler
 app.get('/*', (req, res) => {
