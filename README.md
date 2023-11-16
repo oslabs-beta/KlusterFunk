@@ -2,6 +2,8 @@
 
 KlusterFunk is a monitoring tool, built to visualize metrics from local kafka clusters, showing you a real-time, live-updating graph of those metrics.
 
+You can find and use our application at https://klusterfunk-b05ffb62bc07.herokuapp.com/
+
 ## Overview
 
 This is a tool meant for developers that are familiar with Kafka and how to export metrics. To use this tool we assume you have:
