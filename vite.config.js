@@ -21,10 +21,10 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  build: {
-    manifest: true,
-    rollupOptions: {
-      input: './server/server.js',
-    },
-  },
+  // build: {
+  //   manifest: true,
+  //   rollupOptions: {
+  //     input: './server/server.js',
+  //   },
+  // },
 });
