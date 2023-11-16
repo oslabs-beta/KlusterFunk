@@ -11,6 +11,7 @@ const Login = () => {
   const [ infoMatch, setInfoMatch]  = useState('');
   const navigate = useNavigate();
 
+  // makes sure passwords match
   useEffect(() => {
     confirmPassword.length > 0 && password !== confirmPassword
       ? setInfoMatch('passwords do not match')

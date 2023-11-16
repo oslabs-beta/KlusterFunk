@@ -22,6 +22,7 @@ ChartJS.register(
   Colors
 );
 
+// creating line graphs using chartjs by utilizing data from our metric fetching
 const LineGraph = ({
   graphTitle,
   metricStore,
@@ -36,19 +37,15 @@ const LineGraph = ({
       time = time.toTimeString().slice(0, 8);
       labels.push(time);
     }
-    // console.log('label time: ', metric[i][0]);
   }
-  // console.log(labels);
+
 
   const dataArr = [];
   for (let i = 0; i < metricStore.length; i++) {
     if (metricStore[i][0] === '-') continue;
     dataArr.push(metricStore[i][1]);
   }
-  // console.log(dataArr);
-  // ChartJS.defaults.backgroundColor = '#9BD0F5';
-  // ChartJS.defaults.borderColor = '#36A2EB';
-  // ChartJS.defaults.color = '#000';
+
 
   const options = {
     responsive: true,

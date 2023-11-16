@@ -47,8 +47,10 @@ const useMetricStore = (promAddress) => {
         brokerCount: [],
     };
 
+    // setting initial state to metric store
     const [metricStore, setMetricStore] = useState(initialState);
 
+    // constantly fetch on an interval of 2 seconds and updating our metric store, which will then update the chart
     useEffect(() => {
         const updateMetrics = async () => {
             const endPoint = `/metrics/default?promAddress=${promAddress}`;
@@ -85,10 +87,13 @@ const useMetricStore = (promAddress) => {
         return () => clearInterval(interval);
     }, [promAddress, metricStore])
 
+    // a function that resets the charts when called
     const resetMetricStore = () => {
         setMetricStore(initialState)
     }
 
+    // when this hook is called, it returns metricStore state so it can be passed down to chart component to be graph
+    // returns function that resets metricStore
     return [metricStore, resetMetricStore];
 }
 
