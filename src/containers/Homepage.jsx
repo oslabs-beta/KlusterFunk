@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useState, useRef } from 'react';
 import useAuthenticate from '../Hooks/useAuthenticate.jsx';
 import Nav from '../component/Navbar.jsx';
@@ -17,11 +16,12 @@ import mediumLogo from '@/assets/medium-logo.png';
 import logo from '@/assets/klusterfunklogo2.png';
 
 const Homepage = () => {
-  const [user, setUser] = useState('');
-  const [signout] = useAuthenticate(setUser);
+  const [ user, setUser ] = useState('');
+  const [ signout ] = useAuthenticate(setUser);
   const featuresRef = useRef(null);
   const aboutMeRef = useRef(null);
 
+  // put both features section and about-me section into an object to easily pass it down to Navbar component as a prop
   const refs = {
     featuresRef: featuresRef,
     aboutMeRef: aboutMeRef,

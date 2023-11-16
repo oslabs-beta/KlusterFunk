@@ -1,17 +1,22 @@
 import { useState, useEffect } from 'react';
-
-import useAuthenticate from '../Hooks/useAuthenticate.jsx';
 import LineGraph from '../component/LineGraph.jsx';
 import PromAddress from '../component/PromAddress.jsx';
 import Nav from '../component/Navbar.jsx';
 import useMetricStore from '../Hooks/useMetricStore.jsx';
+import useAuthenticate from '../Hooks/useAuthenticate.jsx';
+
 
 const Dashboard = () => {
-  const [user, setUser] = useState('');
-  const [ signout ] = useAuthenticate(setUser);
-  const [promAddress, setPromAddress] = useState(null)
-  const [metricStore, resetMetricStore] = useMetricStore(promAddress);
+  const [ user, setUser ] = useState('');
 
+  // created custom hook to modularize user authentication actions such as verifying user session and signout
+  const [ signout ] = useAuthenticate(setUser);
+  const [ promAddress, setPromAddress ] = useState(null);
+
+  // created custom hook to modularize the current state of graphs so that the dashboard looks cleaner and metric state hook can be reuseable
+  const [ metricStore, resetMetricStore ] = useMetricStore(promAddress);
+
+  // pushing graph components into an array so it is easy to add more metrics
   const graphArray = [];
   for (let i in metricStore) {
     if (i === 'brokerCount') continue;
