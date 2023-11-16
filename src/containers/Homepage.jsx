@@ -1,5 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useState, useRef } from 'react';
+import davidPic from '@/assets/davidpic.png';
+import connorPic from '@/assets/connorpic.png';
+// import wilsonPic from '@/assets/wilsonpic.png';
+import dominicPic from '@/assets/dominicpic.png';
+import githubIcon from '@/assets/github-mark/github-mark.png';
+import linkedinIcon from '@/assets/LinkedIn-Logos/LI-In-Bug.png';
+import logo from '@/assets/klusterfunklogo2.png';
 
 import useAuthenticate from '../Hooks/useAuthenticate.jsx';
 import Nav from '../component/Navbar.jsx';
@@ -24,7 +31,7 @@ const Homepage = () => {
           id='features'
           className='bg-fuchsia-200 flex-col flex items-center justify-center rounded-lg'
         >
-          <img className='w-2/4' src='src/assets/klusterfunklogo2.png' />
+          <img className='w-2/4' src={logo} />
           <p className='text-lg'>
             Klusterfunk is a web-based GUI for monitoring Kafka metrics
           </p>
@@ -41,89 +48,61 @@ const Homepage = () => {
             <section className='flex justify-center'>
               <div className='flex flex-col justify-center mx-8 px-8'>
                 <p className='text-lg'>David Tezza</p>
-                <img src='src/assets/davidpic.png'></img>{' '}
+                <img src={davidPic}></img>{' '}
                 <div className='flex justify-center'>
                   <a className='mr-2' href='https://github.com/dtezz'>
-                    <img
-                      className='w-10'
-                      src='src/assets/github-mark/github-mark.png'
-                      href
-                    />
+                    <img className='w-10' src={githubIcon} />
                   </a>
                   <a
                     className='mt-1 ml-2'
                     href='https://www.linkedin.com/in/david-tezza/'
                   >
-                    <img
-                      className='w-10'
-                      src='src/assets/LinkedIn-Logos/LI-In-Bug.png'
-                    />
+                    <img className='w-10' src={linkedinIcon} />
                   </a>
                 </div>
               </div>
               <div className='flex flex-col justify-center mx-8 px-8'>
                 <p className='text-lg'>Wilson Wu</p>
-                <img src='src/assets/davidpic.png'></img>{' '}
+                <img src={davidPic}></img>{' '}
                 <div className='flex justify-center'>
                   <a className='mr-2' href='https://github.com/jwu8475'>
-                    <img
-                      className='w-10'
-                      src='src/assets/github-mark/github-mark.png'
-                      href
-                    />
+                    <img className='w-10' src={githubIcon} href />
                   </a>
                   <a
                     className='mt-1 ml-2'
                     href='https://www.linkedin.com/in/wilson-wu-4a821719a/'
                   >
-                    <img
-                      className='w-10'
-                      src='src/assets/LinkedIn-Logos/LI-In-Bug.png'
-                    />
+                    <img className='w-10' src={linkedinIcon} />
                   </a>
                 </div>
               </div>
               <div className='flex flex-col justify-center mx-8 px-8'>
                 <p className='text-lg'>Connor Donahue</p>
-                <img src='src/assets/connorpic.png'></img>{' '}
+                <img src={connorPic}></img>{' '}
                 <div className='flex justify-center'>
                   <a className='mr-2' href='https://github.com/conniedonahue'>
-                    <img
-                      className='w-10'
-                      src='src/assets/github-mark/github-mark.png'
-                      href
-                    />
+                    <img className='w-10' src={githubIcon} href />
                   </a>
                   <a
                     className='mt-1 ml-2'
                     href='https://www.linkedin.com/in/connordonahue09/'
                   >
-                    <img
-                      className='w-10'
-                      src='src/assets/LinkedIn-Logos/LI-In-Bug.png'
-                    />
+                    <img className='w-10' src={linkedinIcon} />
                   </a>
                 </div>
               </div>
               <div className='flex flex-col justify-center mx-8 px-8'>
                 <p className='text-lg'>Dominic Kenny</p>
-                <img src='src/assets/dominicpic.png'></img>{' '}
+                <img src={dominicPic}></img>{' '}
                 <div className='flex justify-center'>
                   <a className='mr-2' href='https://github.com/dominicjkenny'>
-                    <img
-                      className='w-10'
-                      src='src/assets/github-mark/github-mark.png'
-                      href
-                    />
+                    <img className='w-10' src={githubIcon} href />
                   </a>
                   <a
                     className='mt-1 ml-2'
                     href='https://www.linkedin.com/in/dominicjkenny/'
                   >
-                    <img
-                      className='w-10'
-                      src='src/assets/LinkedIn-Logos/LI-In-Bug.png'
-                    />
+                    <img className='w-10' src={linkedinIcon} />
                   </a>
                 </div>
               </div>

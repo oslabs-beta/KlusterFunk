@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Avatar, Dropdown, Navbar, Button } from 'flowbite-react';
 import useScroll from '../Hooks/useScroll.jsx';
 import useDarkMode from '../Hooks/useDarkMode.jsx';
+import grape from '@/assets/grape.png';
 
 const Nav = ({ promAddress, user, signout, refs, reset }) => {
   const navigate = useNavigate();
@@ -10,9 +11,13 @@ const Nav = ({ promAddress, user, signout, refs, reset }) => {
   const [darkMode, toggleDarkMode] = useDarkMode();
 
   return (
-    <Navbar className='sticky top-0 z-50 bg-fuchsia-600 dark:bg-fuchsia-900 rounded' fluid rounded>
+    <Navbar
+      className='sticky top-0 z-50 bg-fuchsia-600 dark:bg-fuchsia-900 rounded'
+      fluid
+      rounded
+    >
       <Navbar.Brand href='/'>
-        <img src='src\assets\grape.png' className='w-12' />
+        <img src={grape} className='w-12' />
       </Navbar.Brand>
       {user && (
         <div className='flex md:order-2'>
@@ -69,7 +74,9 @@ const Nav = ({ promAddress, user, signout, refs, reset }) => {
           </Button>
         )}
         {location.pathname === '/dashboard' && (
-          <div className='text-xl text-black font-bold'>Prometheus: {promAddress}</div>
+          <div className='text-xl text-black font-bold'>
+            Prometheus: {promAddress}
+          </div>
         )}
       </Navbar.Collapse>
     </Navbar>
