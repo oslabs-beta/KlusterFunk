@@ -3,6 +3,7 @@ import { useState, useRef } from 'react';
 import useAuthenticate from '../Hooks/useAuthenticate.jsx';
 import Nav from '../component/Navbar.jsx';
 import TeamInfo from '../component/TeamInfo.jsx';
+import ReadMe from '../component/ReadMe.jsx';
 import davidPic from '@/assets/davidpic.png';
 import connorPic from '@/assets/connorpic.png';
 // import wilsonPic from '@/assets/wilsonpic.png';
@@ -53,28 +54,51 @@ const Homepage = () => {
           className='bg-fuchsia-200 flex-col flex items-center justify-center rounded-lg'
         >
           <img className='w-2/4' src={logo} />
-          <p className='text-lg'>
-            Klusterfunk is a web-based GUI for monitoring Kafka metrics
-          </p>
+          <ReadMe />
         </section>
         <section
           ref={aboutMeRef}
           id='about-me'
           className='bg-fuchsia-200 flex-col flex items-center justify-center rounded-lg'
         >
-          <section className='text-3xl' id='links'>
+          <section
+            className='flex flex-col items-center text-3xl border-b-4 px-2'
+            id='links'
+          >
             Links
             <div className='text-xl' id='link info'>
-              <div>
+              <section>
                 For instructions on how to get started with KlusterFunk, visit
                 our Github repo!
-              </div>
-              <div>
+                <a
+                  className='flex flex-col items-center'
+                  href='https://github.com/oslabs-beta/KlusterFunk'
+                >
+                  <img className='w-1/12' src={githubLogo} />
+                </a>
+              </section>
+              <section>
                 To read more about our Product, head over to our Medium article!
-              </div>
-              <div>Connect with us on LinkedIn!</div>
+                <a
+                  className='flex flex-col items-center'
+                  href='https://www.google.com/'
+                >
+                  <img className='w-1/12' src={mediumLogo} />
+                </a>
+              </section>
+              <section>
+                Connect with us on LinkedIn!{' '}
+                <a
+                  className='flex flex-col items-center'
+                  // href='https://www.linkedin.com'
+                >
+                  <img className='w-1/12' src={linkedinLogo} />
+                </a>
+              </section>
             </div>
           </section>
+        </section>
+        <section className='bg-fuchsia-200 flex-col flex items-center justify-center rounded-lg'>
           <div className='text-4xl text-black' to='#'>
             MEET THE TEAM
           </div>
