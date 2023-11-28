@@ -75,7 +75,7 @@ Localhost:8081 should now be displaying JMX metrics
 
 ## Contributing
 
-Feel free to GitHub issues to let us know what features you want and what you'd like to see next from the project!
+Feel free to use the GitHub Issues tab to let us know what features you want and what you'd like to see next from the project!
 
 If you would like to work on the open source code, please do feel free to submit a pull request! Make sure you're following Javascript ES6 syntax and modularize your code as much as possible.
 
