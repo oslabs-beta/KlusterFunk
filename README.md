@@ -79,11 +79,8 @@ Feel free to GitHub issues to let us know what features you want and what you'd 
 
 If you would like to work on the open source code, please do feel free to submit a pull request! Make sure you're following Javascript ES6 syntax and modularize your code as much as possible.
 
-To get started, first _fork_ the repo to your personal github repos, then run the following commands:
+To get started, first _fork_ and clone the repo, then run the following commands:
 
-```shell
-git clone https://github.com/oslabs-beta/KlusterFunk.git
-```
 
 ```shell
 npm install
