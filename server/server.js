@@ -1,7 +1,8 @@
 import express from 'express';
 import path from 'path';
 import 'dotenv/config';
-import mongoose from 'mongoose';
+import { mongoose } from 'mongoose';
+import { MongoClient } from "mongodb";
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import { userRouter } from './routes/userRouter.js';
@@ -13,6 +14,9 @@ const app = express();
 const PORT = process.env.PORT || 3030;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+const uri = process.env.MONGO_URI;
+
+console.log(process.env.MONGO_URI);
 
 app.use(express.json());
 app.use(cookieParser());
@@ -21,13 +25,26 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(join(__dirname, '../dist')));
 
 // Connect to database
+// const client = new MongoClient(uri);
+
+// async function run() {
+//   try {
+//     // Connect the client to the server	(optional starting in v4.7)
+//     await client.connect();
+//     // Send a ping to confirm a successful connection
+//     await client.db("admin").command({ ping: 1 });
+//     console.log("Pinged your deployment. You successfully connected to MongoDB!");
+//   } finally {
+//     // Ensures that the client will close when you finish/error
+//     await client.close();
+//   }
+// }
+
+// run().catch(console.dir);
+
 mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    dbName: 'KlusterFunk',
-  })
-  .then(() => console.log('Connected to Mongo DB'))
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log(`Connected to Mongo DB using ${process.env.MONGO_URI}`))
   .catch((err) => console.log(err));
 
 // Set up routers
